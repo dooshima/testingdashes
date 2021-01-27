@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+* {
+  /* box-sizing: border-box; */
+  margin: 0;
+  padding: 0;
+  font-family: 'Lato', sans-serif;
+  color: black;
+}
+
+ .home {
+  margin-left: 300px;
+  width: 100%
+} 
+
+
+.displayPatientLog{
+  margin-left: 250px;
+}
+
+.div{
+  /* justify-content: center; */
+margin-left: 250px;
+width: 100%;
+}
+
+.div button{
+  background-color: #17a2b8;
+  color: white;
+  border: none;
+  font-size: 15px;
+  width: 100%;
+  overflow: none;
+}
+
+.row{
+  margin-left: 500px;
+  width: 100%
+}
+
+.contain{
+  margin-left: 800px;
+border: darkslategrey solid 3px;
+
+}
+
+.mini{
+  /* background-color: white; */
+  visibility: hidden;
+}
+
+.maxicon{
+  margin-left: 150px;
+  height: 25px;
+}
+
+
+.taphome{
+  margin-left: 150px;
+}
+
+.drop{
+  width: 120px;
+  height: 50px;
+}
+.profile{
+  /* height:  800px; */
+  margin-top: 20px;
+}
+.health{
+  margin-top: 20px;
+display: flex;
+justify-content: center;
+color: white;
+
+}
+
+.health button{
+  background-color: blue;
+  color: white;
+}
+.contact{
+  width: 50%;
+}
+
+.bankstyle{
+  font-weight: 800;
+}
+.details{
+  margin-left: 20px;
+  margin-top: 20px;
+  height: 170px;
+
+}
+.cards{
+  margin: 20px;
+  border-top: rgb(241, 241, 252) solid;
+}
+.carding{
+  margin: 20px;
+}
+
+.addingborders{
+  border-top: rgb(241, 241, 252) solid;
+  margin: 20px;
+
+}
+.search{
+  width: 40px;
+}
+
+.changeButton{
+  padding-top: 20px;
+}
