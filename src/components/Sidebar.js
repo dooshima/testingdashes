@@ -25,7 +25,7 @@ import { AiOutlineBell } from "react-icons/ai";
 import UserAvatar  from 'react-user-avatar';
 
 
-const options = ["Mangoes", "Apples", "Oranges"];
+const options = ["Profile", "Balance", "Inbox","Setting", "Logout"];
 
 
 const NavIcon = styled(Link)`
@@ -47,7 +47,7 @@ const SidebarNav = styled.nav`
   overflow: scroll;
 
   left: ${({ sidebar }) => (!sidebar ? '0' : '-100%')};
-  transition: 300ms;
+  transition: 360ms;
   z-index: 10;
 `;
 
@@ -90,7 +90,9 @@ export default function Sidebar() {
 
          <DropDownContainer>
         <DropDownHeader onClick={toggling}>
-          {selectedOption ||<UserAvatar size="30" name="Will Binns-Smith" src="https://pbs.twimg.com/profile_images/429442426038538240/6Ac9kykG_400x400.jpeg"/>
+          {selectedOption ||
+          <UserAvatar size="30" name="Will Binns-Smith" 
+          src="https://pbs.twimg.com/profile_images/429442426038538240/6Ac9kykG_400x400.jpeg"/>
 
 }
         </DropDownHeader>

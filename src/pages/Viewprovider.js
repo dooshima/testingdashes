@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) =>({
   },
  avatars:{
    marginTop:'90px',
-  height:'40%',
+  height:'55%',
   borderTop: 'blue solid 3px',
  },
  large: {
@@ -66,7 +66,7 @@ function Viewprovider () {
   return (
     <div className={classes.root}>
      
-    <Grid container spacing={3}>
+    <Grid container spacing={2}>
           <Grid item xs={3} >
              <Paper className={classes.paper, classes.avatars} spacing= {3}> 
              <Avatar src="/broken-image.jpg" className={classes.large} />

@@ -8,7 +8,7 @@ export const SidebarData = [
   {
     title: 'Dashboard',
     path: '/',
-    icon: <FaIcons.FaCartPlus />
+    icon: <IoIcons.IoIosSpeedometer />
   },
   {
     title: 'Update Profile',
@@ -97,12 +97,12 @@ export const SidebarData = [
   {
     title: 'Patients Dashboard',
     path: '/Patientlog',
-    icon: <IoIcons.IoMdHelpCircle />
+    icon: <IoIcons.IoIosPersonAdd />
   },
   {
     title: 'Provider Dashboard',
     path: '/Providerlog',
-    icon: <IoIcons.IoMdHelpCircle />
+    icon: <IoIcons.IoIosPerson />
   },
   {
     title: 'Consultation Log',
@@ -112,7 +112,7 @@ export const SidebarData = [
 
   {
     title: 'Consultation Transaction',
-    icon: <FaIcons.FaEnvelopeOpenText />,
+    icon: <IoIcons.IoMdHelpCircle />,
     iconClosed: <RiIcons.RiArrowDownSFill />,
     iconOpened: <RiIcons.RiArrowUpSFill />,
 
@@ -120,12 +120,12 @@ export const SidebarData = [
       {
         title: 'Current',
         path: '/consultationcurrent',
-        icon: <IoIcons.IoIosPaper />
+        icon: <IoIcons.IoMdArrowRoundDown />
       },
       {
         title: 'Past',
         path: '/consultationpage',
-        icon: <IoIcons.IoIosPaper />
+        icon: <IoIcons.IoMdArrowRoundBack />
       }
     ]
   },

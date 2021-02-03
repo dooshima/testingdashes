@@ -7,7 +7,7 @@ import { Typography } from '@material-ui/core';
 import { Button } from 'react-bootstrap';
 import TapView from './TapView';
 import PatientModal from './PatientModal';
-import { Modal,Dropdown } from 'react-bootstrap';
+import { Modal,Dropdown,Form } from 'react-bootstrap';
 
 
 
@@ -54,7 +54,7 @@ gridone:{
 
 },
 typo:{
-  marginTop:'110px',
+  marginTop:'70px',
   marginLeft:'90px',
 
 },
@@ -103,11 +103,11 @@ function Viewdirect () {
   return (
     <div className={classes.root}>
      
-    <Grid container spacing={2}>
+    <Grid container spacing={1}>
           <Grid item xs={4} className={classes.gridone}>
-          <Grid item xs={12} className={classes.increaseHeight}>
+    <Grid item xs={12} className={classes.increaseHeight}>
 
-             <Paper className={classes.paper, classes.avatars} spacing= {6}> 
+             <Paper className={classes.paper, classes.avatars} spacing= {1}> 
              <Avatar src="/broken-image.jpg" className={classes.large} />
             
              <Typography variant="h4" gutterBottom className={classes.h2}>
@@ -131,7 +131,6 @@ function Viewdirect () {
               </div>
 
               <Grid item xs={12} className={classes.increaseHeight}>
-              {/* <Grid item xs={12}  className = "changeButton"> */}
               <Dropdown className={classes.margin, classes.buttons}>
                 <Dropdown.Toggle variant="primary" id="dropdown-basic">
                 Subscribe Tab
@@ -143,8 +142,7 @@ function Viewdirect () {
                   <Dropdown.Item href="#/action-3">12 Months</Dropdown.Item>
                 </Dropdown.Menu>
             </Dropdown>
-              {/* </div>
-               <div className = "changeButton"> */}
+       
 
                <Button variant="primary"  onClick={handleShow} className={classes.margin, classes.buttons}>       
                  Get Doctor
@@ -153,7 +151,15 @@ function Viewdirect () {
               <Modal.Header closeButton>
                 <Modal.Title>Modal heading</Modal.Title>
               </Modal.Header>
-              <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+              <Modal.Body>
+              <Grid item xs={12} >
+                <Form.Group controlId="exampleForm.ControlInput1">
+                <Form.Label className = "bankstyle">ID</Form.Label>
+                <Form.Control type="text" placeholder="" />
+                </Form.Group>
+                </Grid>
+
+              </Modal.Body>
               <Modal.Footer>
                 <Button variant="secondary" onClick={handleClose}>
                   Close
@@ -173,24 +179,33 @@ function Viewdirect () {
           <Typography variant="h6" gutterBottom className={classes.paper,classes.stylesub}>
           Subscription
           </Typography>
-          <Typography variant="h6" gutterBottom >
+      <Grid item xs = {12}>
+          <Grid item xs = {6}>
+          <p>
             Location
-          </Typography>
+          </p>
 
-          <Typography variant="p" gutterBottom >
+          <p>
             Babajide Ogundipe, PT, Oxon Hill Road, Oxon Hill, MD, USA
-          </Typography>
+          </p>
+          </Grid>
 
+          <Grid item xs = {6}>
+          <p>
+            Location
+          </p>
 
+          <p>
+            Babajide Ogundipe, PT, Oxon Hill Road, Oxon Hill, MD, USA
+          </p>
+          </Grid>
+         </Grid> 
         </Paper>
-
         </Grid>
-
 
         <Grid item xs={12}>
 
-        <Paper className={classes.paper, classes.stylepaper} spacing= {6}> 
-
+        <Paper className={classes.paper, classes.stylepaper} spacing= {1}> 
 
           <Typography variant="h6" gutterBottom className={classes.styleAbout}>
           About Me

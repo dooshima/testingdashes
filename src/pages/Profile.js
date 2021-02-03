@@ -33,7 +33,6 @@ const Profile = () => {
 </Form.Group>
 </Grid>
 
-{/* THIRD */}
 <Grid item xs={6} >
   <Form.Group controlId="exampleForm.ControlInput1">
     <Form.Label  className = "bankstyle">Username</Form.Label>
@@ -61,7 +60,6 @@ const Profile = () => {
   </Form.Group>
   </Grid>
  
- {/* forth */}
 
  <Grid item xs={6} >
       <Form.Group controlId="BankName:">
@@ -110,7 +108,6 @@ const Profile = () => {
 
  
 
-{/* fifth */}
 <Grid item xs={6} >
 <Form.Group controlId="exampleForm.ControlTextarea1">
     <Form.Label className = "bankstyle">Address: </Form.Label>
