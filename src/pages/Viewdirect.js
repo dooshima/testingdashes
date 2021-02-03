@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from "react";
 import './../App.css' ;
 import {makeStyles } from '@material-ui/core';
 import {Grid,Paper} from "@material-ui/core";
@@ -7,7 +7,7 @@ import { Typography } from '@material-ui/core';
 import { Button } from 'react-bootstrap';
 import TapView from './TapView';
 import PatientModal from './PatientModal';
-import { Modal } from 'react-bootstrap';
+import { Modal,Dropdown } from 'react-bootstrap';
 
 
 
@@ -87,12 +87,19 @@ increaseHeight:{
 }));
 
 function Viewdirect () {
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   const classes = useStyles();
   const [value, setValue] = React.useState(2);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+ 
+
+  
   return (
     <div className={classes.root}>
      
@@ -122,23 +129,41 @@ function Viewdirect () {
                     Change Password
                 </Button>
               </div>
-               <div className = "changeButton">
-               <Button variant="primary"  href="/Patientlog" className={classes.margin, classes.buttons}>       
-                 Charge Medflit Card
-                </Button>
-                <Modal show = {false}>
-                  <Modal.Header>Modal Head Part</Modal.Header>
-                  <Modal.body>
-                    Hi, React modal
-                  </Modal.body>
-                  <Modal.Footer>
-                    <Button>
-                    Close Modal
 
-                    </Button>
-                  </Modal.Footer>
-                </Modal>
-              </div>
+              <Grid item xs={12} className={classes.increaseHeight}>
+              {/* <Grid item xs={12}  className = "changeButton"> */}
+              <Dropdown className={classes.margin, classes.buttons}>
+                <Dropdown.Toggle variant="primary" id="dropdown-basic">
+                Subscribe Tab
+                </Dropdown.Toggle>
+
+                <Dropdown.Menu>
+                  <Dropdown.Item href="#">3 Months</Dropdown.Item>
+                  <Dropdown.Item href="#/action-2">6 Months</Dropdown.Item>
+                  <Dropdown.Item href="#/action-3">12 Months</Dropdown.Item>
+                </Dropdown.Menu>
+            </Dropdown>
+              {/* </div>
+               <div className = "changeButton"> */}
+
+               <Button variant="primary"  onClick={handleShow} className={classes.margin, classes.buttons}>       
+                 Get Doctor
+                </Button>
+           <Modal show={show} onHide={handleClose} animation={false}>
+              <Modal.Header closeButton>
+                <Modal.Title>Modal heading</Modal.Title>
+              </Modal.Header>
+              <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+              <Modal.Footer>
+                <Button variant="secondary" onClick={handleClose}>
+                  Close
+                </Button>
+                <Button variant="primary" onClick={handleClose}>
+                  Save Changes
+                </Button>
+              </Modal.Footer>
+         </Modal>
+              </Grid>
             </Paper>
 
            </Grid>

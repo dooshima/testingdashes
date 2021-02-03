@@ -18,7 +18,7 @@ for (let number = 1; number <= 5; number++) {
  const PatientTransaction = () => {
   return (
   
-    <Table striped bordered hover size="sm">
+    <Table striped bordered hover>
     <thead>
       <tr>
         <th>#</th>

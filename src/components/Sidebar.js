@@ -47,7 +47,7 @@ const SidebarNav = styled.nav`
   overflow: scroll;
 
   left: ${({ sidebar }) => (!sidebar ? '0' : '-100%')};
-  transition: 350ms;
+  transition: 300ms;
   z-index: 10;
 `;
 

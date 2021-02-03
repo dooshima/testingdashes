@@ -2,11 +2,9 @@ import React from 'react';
 import './../App.css' ;
 import {makeStyles } from '@material-ui/core';
 import {Grid,Paper} from "@material-ui/core";
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
 import Avatar from '@material-ui/core/Avatar';
 import { Typography } from '@material-ui/core';
-import Button from '@material-ui/core/Button';
+import {Button} from 'react-bootstrap';
 import TapProvider  from './TapProvider';
 
  
@@ -19,8 +17,6 @@ const useStyles = makeStyles((theme) =>({
 
   },
   paper: {
-    // padding: theme.spacing(8),
-
     textAlign: 'center',
     color: theme.palette.text.secondary,
   },
@@ -30,8 +26,7 @@ const useStyles = makeStyles((theme) =>({
   },
  avatars:{
    marginTop:'90px',
-  //  width:'80%',
-  height:'70%',
+  height:'40%',
   borderTop: 'blue solid 3px',
  },
  large: {
@@ -39,17 +34,25 @@ const useStyles = makeStyles((theme) =>({
   height: theme.spacing(9),
   marginLeft:'60px',
   marginTop:'30px',
-
 },
 
 typo:{
   marginTop:'110px',
   marginLeft:'70px',
-
 },
 h2:{
   marginLeft:'50px',
 },
+buttons:{
+  display:'flex',
+  justifyContent:'right',
+  marginLeft:'50px',
+
+},
+stylep:{
+  marginLeft:'80px',
+
+}
 
 }));
 
@@ -65,20 +68,18 @@ function Viewprovider () {
      
     <Grid container spacing={3}>
           <Grid item xs={3} >
-             <Paper className={classes.paper, classes.avatars} spacing= {6}> 
+             <Paper className={classes.paper, classes.avatars} spacing= {3}> 
              <Avatar src="/broken-image.jpg" className={classes.large} />
             
-             <Typography variant="h4" gutterBottom className={classes.h2}>
+             <h3 variant="h4" gutterBottom className={classes.h2}>
                 John Doe
-                </Typography>
-               <Typography variant="p" gutterBottom className={classes.typo}>
+                </h3>
+               <p   className={ classes.stylep}> 
                 Patient
-                </Typography>
-                
+                </p>
 
-            
               <div>
-                <Button variant="outlined" size="medium" color="primary" className={classes.margin, classes.buttons}>
+                <Button variant="primary" color="primary" className={classes.margin, classes.buttons}>
                     Change Password
                 </Button>
               </div>
@@ -90,7 +91,7 @@ function Viewprovider () {
         </Grid>
 
         <Grid item xs={9}>
-          <Paper className={classes.paper, classes.another} spacing= {6}>
+          <Paper className={classes.paper, classes.another} spacing= {3}>
           <TapProvider/>
             
           </Paper>
