@@ -7,7 +7,9 @@ import { Card } from 'react-bootstrap';
 
 const Profile = () => {
   return (
-<Card className = 'cards' >
+    <div >
+
+<Card >
 
 <div  className ='carding'>
 <h4>Person Information</h4>
@@ -134,6 +136,7 @@ const Profile = () => {
 </div>
 
 </Card>
+</div>
   );
 };
 

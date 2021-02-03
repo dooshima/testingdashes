@@ -39,10 +39,10 @@ const NavIcon = styled(Link)`
 
 const SidebarNav = styled.nav`
   width: 250px;
-  height: 100vh;
+  height: 150vh;
   display: flex;
   justify-content: center;
-  position: fixed;
+  position: absolute;
   top: 0;
   overflow: scroll;
 

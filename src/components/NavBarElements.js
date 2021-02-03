@@ -10,6 +10,7 @@ height:80px;
 display : flex;
 justify-content: space-between;
 padding-left: 25px;
+
 `
 
 export const NavLink = styled(Link)`
@@ -33,7 +34,7 @@ export const Bars = styled(FaBeer)`
 
     @media screen and (max-width:768px){
         display:block;
-        positin: absolute;
+        position: absolute;
         top:0;
         right:0;
         transform:translate(-100%, 75%)
@@ -49,6 +50,7 @@ export const NavMenu = styled.div`
     aligin-items:center;
     margin-right: 10px; 
     padding: 30px;
+    
     @media screen and (max-width: 768px){
         display:none;
     }

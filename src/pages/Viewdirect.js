@@ -2,13 +2,14 @@ import React from 'react';
 import './../App.css' ;
 import {makeStyles } from '@material-ui/core';
 import {Grid,Paper} from "@material-ui/core";
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
 import Avatar from '@material-ui/core/Avatar';
 import { Typography } from '@material-ui/core';
-import Profile  from './Profile';
-import Button from '@material-ui/core/Button';
+import { Button } from 'react-bootstrap';
 import TapView from './TapView';
+import PatientModal from './PatientModal';
+import { Modal } from 'react-bootstrap';
+
+
 
 
 const useStyles = makeStyles((theme) =>({
@@ -58,13 +59,13 @@ typo:{
 
 },
 h2:{
-  marginLeft:'50px',
+  display:'flex',
+  justifyContent:'center'
 },
 buttons:{
-  marginLeft:'50px',
-  padding:'10px',
-  fontSize:'13px',
-  backgroundColor:'#007bff',
+  marginLeft:'60px',
+  padding:'5px',
+  fontSize:'15px',
   color:'white'
 
 },
@@ -80,6 +81,9 @@ stylesub:{
   borderBottom:'grey  solid 1px',
   textAlign:'center',
 },
+increaseHeight:{
+  height:'420px',
+}
 }));
 
 function Viewdirect () {
@@ -92,9 +96,9 @@ function Viewdirect () {
   return (
     <div className={classes.root}>
      
-    <Grid container spacing={3}>
+    <Grid container spacing={2}>
           <Grid item xs={4} className={classes.gridone}>
-          <Grid item xs={12}>
+          <Grid item xs={12} className={classes.increaseHeight}>
 
              <Paper className={classes.paper, classes.avatars} spacing= {6}> 
              <Avatar src="/broken-image.jpg" className={classes.large} />
@@ -114,22 +118,32 @@ function Viewdirect () {
                 #45000
                 </Typography>
               <div  className = "changeButton">
-                <Button variant="contained" size="medium" color="primary" className={classes.margin, classes.buttons}>
+              <Button variant="primary"  href="/Patientlog" className={classes.margin, classes.buttons}>       
                     Change Password
                 </Button>
               </div>
                <div className = "changeButton">
-                <Button variant="contained" size="medium" color="primary" className={classes.margin, classes.buttons}>
+               <Button variant="primary"  href="/Patientlog" className={classes.margin, classes.buttons}>       
                  Charge Medflit Card
                 </Button>
+                <Modal show = {false}>
+                  <Modal.Header>Modal Head Part</Modal.Header>
+                  <Modal.body>
+                    Hi, React modal
+                  </Modal.body>
+                  <Modal.Footer>
+                    <Button>
+                    Close Modal
+
+                    </Button>
+                  </Modal.Footer>
+                </Modal>
               </div>
             </Paper>
 
            </Grid>
-           <Grid item xs={12}>
-
-        <Paper className={classes.paper, classes.avatars} spacing= {6}> 
-
+   <Grid item xs={12}>
+        <Paper className={classes.paper, classes.avatars} spacing= {1}> 
 
           <Typography variant="h6" gutterBottom className={classes.paper,classes.stylesub}>
           Subscription
@@ -172,7 +186,7 @@ function Viewdirect () {
         </Grid>
 
         <Grid item xs={8}>
-          <Paper className={classes.paper, classes.another} spacing= {10}>
+          <Paper className={classes.paper, classes.another} spacing= {3}>
           <TapView/>
             
           </Paper>

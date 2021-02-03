@@ -1,12 +1,9 @@
 import React from 'react';
 import './../App.css' ;
-import {makeStyles } from '@material-ui/core';
+import {createMuiTheme,makeStyles } from '@material-ui/core';
 import {Grid,Paper} from "@material-ui/core";
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
-import Avatar from '@material-ui/core/Avatar';
-import { Typography } from '@material-ui/core';
-import  Tap  from './TapView';
+import { Typography,Button } from '@material-ui/core';
+import { green } from '@material-ui/core/colors';
 
 
 const useStyles = makeStyles((theme) =>({
@@ -24,12 +21,44 @@ const useStyles = makeStyles((theme) =>({
   },
 
 load:{
-      marginTop:'80px',
+      marginTop:'20px',
     },
+
  typo:{
     color: 'white',
     height:'40px'
-    }
+  },
+
+  ButtonGreen:{
+  width:'100%',
+ backgroundColor:'#007500',
+  margin:'0',
+  color:'white'
+ },   
+ ButtonRed:{
+  width:'100%',
+  backgroundColor:'#A60027',
+   margin:'0',
+   color:'white'
+ },
+ ButtonLightBlue:{
+  width:'100%',
+  backgroundColor:'#0A758F',
+   margin:'0',
+   color:'white'
+ },
+ ButtonBlue:{
+  width:'100%',
+  backgroundColor:'#035CA3',
+   margin:'0',
+   color:'white'
+ },
+ ButtonYellow:{
+  width:'100%',
+  backgroundColor:'#E3AE09',
+   margin:'0',
+   color:'white'
+ }
 }));
 
 
@@ -41,23 +70,25 @@ export default function Dashboard () {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+ 
   return (
     <div className={classes.root}>
     <Grid container spacing={3}>
           <Grid item xs={4} >
-                <Paper className={classes.paper} spacing= {20}>          
-                <Grid item xs={12}  className={classes.load} sm container style={{background: '#28a745'}} >
-            <Grid item xs container direction="column" spacing={2}>
+                <Paper className={classes.paper} spacing= {10}>          
+                <Grid item xs={12}  className={classes.load} sm container style={{background: '#00A300'}} >
+            <Grid item xs container direction="column">
               <Grid item xs>
                 <Typography gutterBottom variant="h3" className={classes.typo}>
-                  7773
+                7859
                 </Typography>
                 <Typography variant="h6" gutterBottom className={classes.typo}>
-                 Patient
+                Patient Dashboard
                 </Typography>
-                <Typography variant="body2" color="textSecondary" className={classes.typo}>
-                 More Info
-                </Typography>
+                <Button variant="success"  href="/Patientlog" className={classes.ButtonGreen}>       
+                       More Info
+                </Button>
+
               </Grid>
           </Grid>
           </Grid>
@@ -65,19 +96,19 @@ export default function Dashboard () {
           </Grid>
 
           <Grid item xs={4} >
-                <Paper className={classes.paper} spacing= {20}>          
-                <Grid item xs={12} sm container className={classes.load} style={{background: '#dc3545'}}>
-            <Grid item xs container direction="column" spacing={2}>
+                <Paper className={classes.paper} spacing= {10}>          
+                <Grid item xs={12} sm container className={classes.load} style={{background: '#D40032'}}>
+            <Grid item xs container direction="column" >
               <Grid item xs>
-                <Typography gutterBottom variant="subtitle1" className={classes.typo}>
-                  Standard license
+              <Typography gutterBottom variant="h3" className={classes.typo}>
+                  153
                 </Typography>
-                <Typography variant="body2" gutterBottom className={classes.typo}>
-                  Full resolution 1920x1080 • JPEG
+                <Typography variant="h6" gutterBottom className={classes.typo}>
+                Provider Dashboard
                 </Typography>
-                <Typography variant="body2" color="textSecondary">
-                  ID: 1030114
-                </Typography>
+                <Button variant="success"  href="/Providerlog" className={classes.ButtonRed}>       
+                       More Info
+                </Button>
               </Grid>
           </Grid>
           </Grid>
@@ -85,19 +116,19 @@ export default function Dashboard () {
           </Grid>
 
           <Grid item xs={4} >
-                <Paper className={classes.paper} spacing= {20}>          
-                <Grid item xs={12} sm container className={classes.load} style={{background: '#17a2b8'}}>
-            <Grid item xs container direction="column" spacing={2}>
+                <Paper className={classes.paper} spacing= {10}>          
+                <Grid item xs={12} sm container className={classes.load} style={{background: '#0D98BA'}}>
+            <Grid item xs container direction="column">
               <Grid item xs>
-                <Typography gutterBottom variant="subtitle1" className={classes.typo}>
-                  Standard license
+              <Typography gutterBottom variant="h3" className={classes.typo}>
+                  3
                 </Typography>
-                <Typography variant="body2" gutterBottom className={classes.typo}>
-                  Full resolution 1920x1080 • JPEG
+                <Typography variant="h6" gutterBottom className={classes.typo}>
+                Pharmacy Dashboard
                 </Typography>
-                <Typography variant="body2" color="textSecondary">
-                  ID: 1030114
-                </Typography>
+                <Button variant="success" className={classes.ButtonLightBlue}>       
+                       More Info
+                </Button>
               </Grid>
           </Grid>
           </Grid>
@@ -109,19 +140,19 @@ export default function Dashboard () {
 
       <Grid container spacing={3}>
           <Grid item xs={4} >
-                <Paper className={classes.paper} spacing= {20}>          
-                <Grid item xs={12}  className={classes.load} sm container style={{background: '#dc3545'}} >
-            <Grid item xs container direction="column" spacing={2}>
+                <Paper className={classes.paper} spacing= {10}>          
+                <Grid item xs={12}  className={classes.load} sm container style={{background: '#D40032'}} >
+            <Grid item xs container direction="column">
               <Grid item xs>
-                <Typography gutterBottom variant="subtitle1" className={classes.typo}>
-                  Standard license
+              <Typography gutterBottom variant="h3" className={classes.typo}>
+                  4
                 </Typography>
-                <Typography variant="body2" gutterBottom className={classes.typo}>
-                  Full resolution 1920x1080 • JPEG
+                <Typography variant="h6" gutterBottom className={classes.typo}>
+                Laboratory Dashboard
                 </Typography>
-                <Typography variant="body2" color="textSecondary">
-                  ID: 1030114
-                </Typography>
+                <Button variant="success" className={classes.ButtonRed}>       
+                       More Info
+                </Button>
               </Grid>
           </Grid>
           </Grid>
@@ -129,19 +160,19 @@ export default function Dashboard () {
           </Grid>
 
           <Grid item xs={4} >
-                <Paper className={classes.paper} spacing= {20}>          
-                <Grid item xs={12} sm container className={classes.load} style={{background: '#007bff'}}>
-            <Grid item xs container direction="column" spacing={2}>
+                <Paper className={classes.paper} spacing= {10}>          
+                <Grid item xs={12} sm container className={classes.load} style={{background: '#088FFA'}}>
+            <Grid item xs container direction="column" >
               <Grid item xs>
-                <Typography gutterBottom variant="subtitle1" className={classes.typo}>
-                  Standard license
+              <Typography gutterBottom variant="h3" className={classes.typo}>
+                  11
                 </Typography>
-                <Typography variant="body2" gutterBottom className={classes.typo}>
-                  Full resolution 1920x1080 • JPEG
+                <Typography variant="h6" gutterBottom className={classes.typo}>
+                 Hosiptal Dashboard
                 </Typography>
-                <Typography variant="body2" color="textSecondary">
-                  ID: 1030114
-                </Typography>
+                <Button variant="success" className={classes.ButtonBlue}>       
+                       More Info
+                </Button>
               </Grid>
           </Grid>
           </Grid>
@@ -149,82 +180,19 @@ export default function Dashboard () {
           </Grid>
 
           <Grid item xs={4} >
-                <Paper className={classes.paper} spacing= {20}>          
-                <Grid item xs={12} sm container className={classes.load} style={{background: '#ffc107'}}>
-            <Grid item xs container direction="column" spacing={2}>
+                <Paper className={classes.paper} spacing= {10}>          
+                <Grid item xs={12} sm container className={classes.load} style={{background: '#F6C324'}}>
+            <Grid item xs container direction="column" >
               <Grid item xs>
-                <Typography gutterBottom variant="subtitle1" className={classes.typo}>
-                  Standard license
+              <Typography gutterBottom variant="h3" className={classes.typo}>
+                  6
                 </Typography>
-                <Typography variant="body2" gutterBottom className={classes.typo}>
-                  Full resolution 1920x1080 • JPEG
+                <Typography variant="h6" gutterBottom className={classes.typo}>
+                Partners Dashboard
                 </Typography>
-                <Typography variant="body2" color="textSecondary">
-                  ID: 1030114
-                </Typography>
-              </Grid>
-          </Grid>
-          </Grid>
-          </Paper>
-          </Grid>
-      
-      </Grid>
-
-      <Grid container spacing={3}>
-          <Grid item xs={4} >
-                <Paper className={classes.paper} spacing= {20}>          
-                <Grid item xs={12}  className={classes.load} sm container style={{background: '#28a745'}} >
-            <Grid item xs container direction="column" spacing={2}>
-              <Grid item xs>
-                <Typography gutterBottom variant="subtitle1" className={classes.typo}>
-                  Standard license
-                </Typography>
-                <Typography variant="body2" gutterBottom className={classes.typo}>
-                  Full resolution 1920x1080 • JPEG
-                </Typography>
-                <Typography variant="body2" color="textSecondary">
-                  ID: 1030114
-                </Typography>
-              </Grid>
-          </Grid>
-          </Grid>
-          </Paper>
-          </Grid>
-
-          <Grid item xs={4} >
-                <Paper className={classes.paper} spacing= {20}>          
-                <Grid item xs={12} sm container className={classes.load} style={{background: '#007bff'}}>
-            <Grid item xs container direction="column" spacing={2}>
-              <Grid item xs>
-                <Typography gutterBottom variant="subtitle1" className={classes.typo}>
-                  Standard license
-                </Typography>
-                <Typography variant="body2" gutterBottom className={classes.typo}>
-                  Full resolution 1920x1080 • JPEG
-                </Typography>
-                <Typography variant="body2" color="textSecondary">
-                  ID: 1030114
-                </Typography>
-              </Grid>
-          </Grid>
-          </Grid>
-          </Paper>
-          </Grid>
-
-          <Grid item xs={4} >
-                <Paper className={classes.paper} spacing= {20}>          
-                <Grid item xs={12} sm container className={classes.load} style={{background: '#28a745'}}>
-            <Grid item xs container direction="column" spacing={2}>
-              <Grid item xs>
-                <Typography gutterBottom variant="subtitle1" className={classes.typo}>
-                  Standard license
-                </Typography>
-                <Typography variant="body2" gutterBottom className={classes.typo}>
-                  Full resolution 1920x1080 • JPEG
-                </Typography>
-                <Typography variant="body2" color="textSecondary">
-                  ID: 1030114
-                </Typography>
+                <Button variant="success" className={classes.ButtonYellow}>       
+                       More Info
+                </Button>
               </Grid>
           </Grid>
           </Grid>
@@ -235,19 +203,82 @@ export default function Dashboard () {
 
       <Grid container spacing={3}>
           <Grid item xs={4} >
-                <Paper className={classes.paper} spacing= {20}>          
-                <Grid item xs={12}  className={classes.load} sm container style={{background: '#17a2b8'}} >
-            <Grid item xs container direction="column" spacing={2}>
+                <Paper className={classes.paper} spacing= {10}>          
+                <Grid item xs={12}  className={classes.load} sm container style={{background: '#00A300'}} >
+            <Grid item xs container direction="column" >
               <Grid item xs>
-                <Typography gutterBottom variant="subtitle1" className={classes.typo}>
-                  Standard license
+              <Typography gutterBottom variant="h3" className={classes.typo}>
+                  6
                 </Typography>
-                <Typography variant="body2" gutterBottom className={classes.typo}>
-                  Full resolution 1920x1080 • JPEG
+                <Typography variant="h6" gutterBottom className={classes.typo}>
+                 Users
                 </Typography>
-                <Typography variant="body2" color="textSecondary">
-                  ID: 1030114
+                <Button variant="success" href="/Profile" className={classes.ButtonGreen}>       
+                       More Info
+                </Button>
+              </Grid>
+          </Grid>
+          </Grid>
+          </Paper>
+          </Grid>
+
+          <Grid item xs={4} >
+                <Paper className={classes.paper} spacing= {10}>          
+                <Grid item xs={12} sm container className={classes.load} style={{background: '#088FFA'}}>
+            <Grid item xs container direction="column" >
+              <Grid item xs>
+              <Typography gutterBottom variant="h3" className={classes.typo}>
+                  11
                 </Typography>
+                <Typography variant="h6" gutterBottom className={classes.typo}>
+                 Consultation
+                </Typography>
+                <Button variant="success" className={classes.ButtonBlue}>       
+                       More Info
+                </Button>
+              </Grid>
+          </Grid>
+          </Grid>
+          </Paper>
+          </Grid>
+
+          <Grid item xs={4} >
+                <Paper className={classes.paper} spacing= {10}>          
+                <Grid item xs={12}  className={classes.load} sm container style={{background: '#00A300'}} >
+            <Grid item xs container direction="column" >
+              <Grid item xs>
+              <Typography gutterBottom variant="h3" className={classes.typo}>
+                  6
+                </Typography>
+                <Typography variant="h6" gutterBottom className={classes.typo}>
+                Order log
+                </Typography>
+                <Button variant="success" className={classes.ButtonGreen}>       
+                       More Info
+                </Button>
+              </Grid>
+          </Grid>
+          </Grid>
+          </Paper>
+          </Grid>
+      
+      </Grid>
+
+      <Grid container spacing={3}>
+          <Grid item xs={4} >
+                <Paper className={classes.paper} spacing= {10}>          
+                 <Grid item xs={12} sm container className={classes.load} style={{background: '#0D98BA'}}>
+            <Grid item xs container direction="column">
+              <Grid item xs>
+              <Typography gutterBottom variant="h3" className={classes.typo}>
+                  3
+                </Typography>
+                <Typography variant="h6" gutterBottom className={classes.typo}>
+                 Call Log
+                </Typography>
+                <Button variant="success" className={classes.ButtonLightBlue}>       
+                       More Info
+                </Button>
               </Grid>
           </Grid>
           </Grid>

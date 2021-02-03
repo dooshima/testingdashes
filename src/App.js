@@ -17,8 +17,12 @@ import Providerdetails from './pages/Providerdetails';
 import Providertransaction from './pages/Providertransaction';
 import Provideractivity from './pages/Provideractivity';
 import Consultationlog from './pages/Consultationlog';
-
-
+import PatientModal from './pages/PatientModal';
+import viewConsultation from './pages/viewConsultation';
+import directConsultation from './pages/directConsultation';
+import nextDirectConsulation from './pages/nextDirectConsulation';
+import consultationcurrent from './pages/consultationcurrent';
+import consultationpage from './pages/consultationpage';
 
 
 function App() {
@@ -43,9 +47,15 @@ function App() {
         <Route path='/Providertransaction' exact component={Providertransaction} />
         <Route path='/Provideractivity' exact component={Provideractivity} />
         <Route path='/Consultationlog' exact component={Consultationlog} />
+        <Route path='/PatientModal' exact component={PatientModal} />
+        <Route path='/viewConsultation' exact component={viewConsultation} />
+        <Route path='/directConsultation' exact component={directConsultation} />
+        <Route path='/nextDirectConsulation' exact component={nextDirectConsulation} />
+        <Route path='/consultationcurrent' exact component={consultationcurrent} />
+        <Route path='/consultationpage' exact component={consultationpage} />
 
+                  
         
- 
       </Switch>
     </Router>
   );

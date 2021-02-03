@@ -6,17 +6,35 @@
   padding: 0;
   font-family: 'Lato', sans-serif;
   color: black;
+  font-size: 13px;
 }
 
  .home {
   margin-left: 300px;
   width: 100%
 } 
+.profilestyle{
+  margin-left: 150px;
+}
 
+.addmargin{
+  margin-top: 30px;
+}
+.lengthform{
+  height: 800px;
+}
+
+.styleborder{
+  border-bottom:lightslategray 1px solid;
+  width: 100%;
+  margin:0;
+}
 
 .displayPatientLog{
   margin-left: 250px;
 }
+
+
 
 .div{
   /* justify-content: center; */
@@ -96,6 +114,18 @@ color: white;
   margin: 20px;
   border-top: rgb(241, 241, 252) solid;
 }
+.cardDirect{
+  margin: 20px;
+  border-top: rgb(241, 241, 252) solid;
+  height: 650px;
+}
+
+.cardCurrent{
+  margin: 20px;
+  border-top: rgb(241, 241, 252) solid;
+  height: 450px;
+
+}
 .carding{
   margin: 20px;
 }
@@ -111,4 +141,12 @@ color: white;
 
 .changeButton{
   padding-top: 20px;
+}
+
+.changeh4{
+  margin: 20px;
+}
+
+.addspacing{
+  margin-left: 30px;
 }

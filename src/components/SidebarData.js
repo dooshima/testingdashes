@@ -108,5 +108,25 @@ export const SidebarData = [
     title: 'Consultation Log',
     path: '/consultationlog',
     icon: <IoIcons.IoMdHelpCircle />
-  }
+  },
+
+  {
+    title: 'Consultation Transaction',
+    icon: <FaIcons.FaEnvelopeOpenText />,
+    iconClosed: <RiIcons.RiArrowDownSFill />,
+    iconOpened: <RiIcons.RiArrowUpSFill />,
+
+    subNav: [
+      {
+        title: 'Current',
+        path: '/consultationcurrent',
+        icon: <IoIcons.IoIosPaper />
+      },
+      {
+        title: 'Past',
+        path: '/consultationpage',
+        icon: <IoIcons.IoIosPaper />
+      }
+    ]
+  },
 ];
