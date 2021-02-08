@@ -20,8 +20,6 @@ const useStyles = makeStyles((theme) =>({
 
   },
   paper: {
-    // padding: theme.spacing(8),
-
     textAlign: 'center',
     color: theme.palette.text.secondary,
   },
@@ -31,14 +29,21 @@ const useStyles = makeStyles((theme) =>({
   },
  avatars:{
    marginTop:'90px',
-   width:'80%',
-  height:'90%',
+   width:'95%',
+  height:'100%',
+  borderTop: '#007bff solid 3px',
+ },
+ otherStyle:{
+  width:'95%',
+  marginTop:'20px',   
+  height:'100%',
   borderTop: '#007bff solid 3px',
  },
  stylepaper:{
-  marginTop:'90px',
-  width:'80%',
+  marginTop:'20px',
+  width:'95%',
  height:'90%',
+ textAlign:'left',
 },
 
  large: {
@@ -69,20 +74,24 @@ buttons:{
   color:'white'
 
 },
+addingMargin:{
+  marginLeft:'30px',
+
+},
 styleAbout:{
   height:'40px',
   borderBottom:'grey  solid 1px',
   backgroundColor:'#007bff',
-  textAlign:'center',
+  padding:'5px',
   color:'white'
 },
 stylesub:{
-  height:'40px',
+  height:'50px',
   borderBottom:'grey  solid 1px',
-  textAlign:'center',
+  padding:'8px',
 },
 increaseHeight:{
-  height:'420px',
+  height:'400px',
 }
 }));
 
@@ -103,11 +112,11 @@ function Viewdirect () {
   return (
     <div className={classes.root}>
      
-    <Grid container spacing={1}>
-          <Grid item xs={4} className={classes.gridone}>
-    <Grid item xs={12} className={classes.increaseHeight}>
+  <Grid container>
+    <Grid item xs={3} className={classes.gridone}>
+      <Grid item xs={12} className={classes.increaseHeight}>
 
-             <Paper className={classes.paper, classes.avatars} spacing= {1}> 
+             <Paper className={classes.paper, classes.avatars}> 
              <Avatar src="/broken-image.jpg" className={classes.large} />
             
              <Typography variant="h4" gutterBottom className={classes.h2}>
@@ -130,19 +139,7 @@ function Viewdirect () {
                 </Button>
               </div>
 
-              <Grid item xs={12} className={classes.increaseHeight}>
-              <Dropdown className={classes.margin, classes.buttons}>
-                <Dropdown.Toggle variant="primary" id="dropdown-basic">
-                Subscribe Tab
-                </Dropdown.Toggle>
-
-                <Dropdown.Menu>
-                  <Dropdown.Item href="#">3 Months</Dropdown.Item>
-                  <Dropdown.Item href="#/action-2">6 Months</Dropdown.Item>
-                  <Dropdown.Item href="#/action-3">12 Months</Dropdown.Item>
-                </Dropdown.Menu>
-            </Dropdown>
-       
+       <Grid item xs={12} className={classes.increaseHeight}>
 
                <Button variant="primary"  onClick={handleShow} className={classes.margin, classes.buttons}>       
                  Get Doctor
@@ -173,21 +170,42 @@ function Viewdirect () {
             </Paper>
 
            </Grid>
+
    <Grid item xs={12}>
-        <Paper className={classes.paper, classes.avatars} spacing= {1}> 
+        <Paper className={classes.paper, classes.otherStyle} > 
+        <div className={classes.paper,classes.stylesub}>
+        <Grid container spacing={3}>
 
-          <Typography variant="h6" gutterBottom className={classes.paper,classes.stylesub}>
-          Subscription
-          </Typography>
-      <Grid item xs = {12}>
+              <Grid item xs = {6}>
+                <h4>Subscription</h4>
+              </Grid>
+
+              <Grid item xs = {6}>
+              <Dropdown className={classes.margin, classes.addingMargin}>
+                <Dropdown.Toggle variant="success" id="dropdown-basic">
+                Activate
+                </Dropdown.Toggle>
+
+                <Dropdown.Menu>
+                  <Dropdown.Item href="#">Treatment</Dropdown.Item>
+                  <Dropdown.Item href="#/action-2">Subscription</Dropdown.Item>
+                </Dropdown.Menu>
+            </Dropdown>
+       
+             
+              </Grid>
+
+              </Grid>
+
+
+        </div>
+
+        <Grid container spacing={3}>
+
           <Grid item xs = {6}>
-          <p>
-            Location
-          </p>
+          <div style={{background:"red"}}>
 
-          <p>
-            Babajide Ogundipe, PT, Oxon Hill Road, Oxon Hill, MD, USA
-          </p>
+          </div>
           </Grid>
 
           <Grid item xs = {6}>
@@ -199,8 +217,10 @@ function Viewdirect () {
             Babajide Ogundipe, PT, Oxon Hill Road, Oxon Hill, MD, USA
           </p>
           </Grid>
-         </Grid> 
+
+</Grid>
         </Paper>
+        
         </Grid>
 
         <Grid item xs={12}>
@@ -225,8 +245,8 @@ function Viewdirect () {
 
         </Grid>
 
-        <Grid item xs={8}>
-          <Paper className={classes.paper, classes.another} spacing= {3}>
+        <Grid item xs={9}>
+          <Paper className={classes.paper, classes.another} >
           <TapView/>
             
           </Paper>

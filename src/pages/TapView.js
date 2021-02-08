@@ -24,7 +24,6 @@ const TapView = () => {
                   indicatorColor="primary"
                   textColor="primary"
                   onChange={handleChange}
-                  className='labeling'
                   aria-label="disabled tabs example"
                 >
                   <Tab label="Profile"  onClick={Profile}/>
