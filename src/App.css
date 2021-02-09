@@ -35,9 +35,7 @@
 }
 
 
-
 .div{
-  /* justify-content: center; */
 margin-left: 250px;
 width: 100%;
 }
@@ -151,4 +149,31 @@ color: white;
 }
 .labeling{
   margin-top: 10px;
+}
+
+.Navbar{
+
+}
+
+
+/* On screens that are less than 700px wide, make the sidebar into a topbar */
+/* @media screen and (max-width: 700px) {
+  .navbar {
+    width: 100%;
+    height: auto;
+    position: relative;
+    margin:0;
+  }
+  .gridWeb{
+    margin: 0;
+    width: 100%;
+  }  */
+
+
+@media screen and (max-width: 700px) {
+  *{
+    min-width: 0;
+    margin-left: 0px;
+  } 
+
 }

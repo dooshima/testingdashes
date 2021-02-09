@@ -23,6 +23,9 @@ import directConsultation from './pages/directConsultation';
 import nextDirectConsulation from './pages/nextDirectConsulation';
 import consultationcurrent from './pages/consultationcurrent';
 import consultationpage from './pages/consultationpage';
+import Transactionlog from './pages/Transactionlog';
+import AllUserlog from './pages/AllUserlog';
+
 
 
 function App() {
@@ -53,8 +56,10 @@ function App() {
         <Route path='/nextDirectConsulation' exact component={nextDirectConsulation} />
         <Route path='/consultationcurrent' exact component={consultationcurrent} />
         <Route path='/consultationpage' exact component={consultationpage} />
+        <Route path='/Transactionlog' exact component={Transactionlog} />
+        <Route path='/AllUserlog' exact component={AllUserlog} />
 
-                  
+         
         
       </Switch>
     </Router>

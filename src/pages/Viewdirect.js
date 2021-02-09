@@ -141,7 +141,7 @@ function Viewdirect () {
 
        <Grid item xs={12} className={classes.increaseHeight}>
 
-               <Button variant="primary"  onClick={handleShow} className={classes.margin, classes.buttons}>       
+               <Button variant="primary"  onClick={handleShow} className={classes.margin, classes.buttons} style={{marginTop:'12px'}}>       
                  Get Doctor
                 </Button>
            <Modal show={show} onHide={handleClose} animation={false}>
@@ -187,17 +187,63 @@ function Viewdirect () {
                 </Dropdown.Toggle>
 
                 <Dropdown.Menu>
-                  <Dropdown.Item href="#">Treatment</Dropdown.Item>
+                  <Dropdown.Item href="#" onClick={handleShow} >Treatment</Dropdown.Item>
+                  
                   <Dropdown.Item href="#/action-2">Subscription</Dropdown.Item>
                 </Dropdown.Menu>
             </Dropdown>
+       
        
              
               </Grid>
 
               </Grid>
+              <Modal show={show} onHide={handleClose} animation={false}>
+              <Modal.Header closeButton>
+                <Modal.Title>Modal heading</Modal.Title>
+              </Modal.Header>
+              <Modal.Body>
+              <Grid item xs={12} >
+                <Form.Group controlId="exampleForm.ControlInput1">
+                <Form.Label className = "bankstyle">ID</Form.Label>
+                <Form.Control type="text" placeholder="" />
+                </Form.Group>
+                </Grid>
+
+              </Modal.Body>
+              <Modal.Footer>
+                <Button variant="secondary" onClick={handleClose}>
+                  Close
+                </Button>
+                <Button variant="primary" onClick={handleClose}>
+                  Save Changes
+                </Button>
+              </Modal.Footer>
+    </Modal>
 
 
+    <Modal show={show} onHide={handleClose} animation={false}>
+              <Modal.Header closeButton>
+                <Modal.Title>Modal heading</Modal.Title>
+              </Modal.Header>
+              <Modal.Body>
+              <Grid item xs={12} >
+                <Form.Group controlId="exampleForm.ControlInput1">
+                <Form.Label className = "bankstyle">ID</Form.Label>
+                <Form.Control type="text" placeholder="" />
+                </Form.Group>
+                </Grid>
+
+              </Modal.Body>
+              <Modal.Footer>
+                <Button variant="secondary" onClick={handleClose}>
+                  Close
+                </Button>
+                <Button variant="primary" onClick={handleClose}>
+                  Save Changes
+                </Button>
+              </Modal.Footer>
+    </Modal>
         </div>
 
         <Grid container spacing={3}>

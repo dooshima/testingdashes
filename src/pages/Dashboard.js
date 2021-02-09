@@ -73,7 +73,7 @@ export default function Dashboard () {
  
   return (
     <div className={classes.root}>
-    <Grid container spacing={3}>
+    <Grid container spacing={3} className="gridWeb">
           <Grid item xs={4} >
                 <Paper className={classes.paper} spacing= {10}>          
                 <Grid item xs={12}  className={classes.load} sm container style={{background: '#00A300'}} >

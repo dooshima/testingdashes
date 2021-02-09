@@ -49,6 +49,11 @@ const SidebarNav = styled.nav`
   left: ${({ sidebar }) => (!sidebar ? '0' : '-100%')};
   transition: 360ms;
   z-index: 10;
+
+  @media screen and (max-width: 700px) {
+    width:0%;
+
+  }
 `;
 
 const SidebarWrap = styled.div`
@@ -74,7 +79,7 @@ export default function Sidebar() {
   return (
     <>
       <IconContext.Provider value={{ color: '#000' }}>
-        <Nav>
+        <Nav className="Navbar">
           <NavIcon to='#'>
             <FaIcons.FaBars onClick={showSidebar} className="maxicon"/>
             </NavIcon>
@@ -112,7 +117,7 @@ export default function Sidebar() {
         </Nav>
 
 
-        <SidebarNav sidebar={sidebar}>
+        <SidebarNav sidebar={sidebar} className="sidebar">
           <SidebarWrap>
             <NavIcon to='#'>
               <FaIcons.FaBars onClick={showSidebar} className= "mini" />

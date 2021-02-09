@@ -38,30 +38,8 @@ export const SidebarData = [
   },
   {
     title: 'All Users',
-    path: '/reports',
+    path: '/viewUsers',
     icon: <IoIcons.IoIosPaper />,
-    iconClosed: <RiIcons.RiArrowDownSFill />,
-    iconOpened: <RiIcons.RiArrowUpSFill />,
-
-    subNav: [
-      {
-        title: 'Reports',
-        path: '/reports/reports1',
-        icon: <IoIcons.IoIosPaper />,
-        cName: 'sub-nav'
-      },
-      {
-        title: 'Reports 2',
-        path: '/reports/reports2',
-        icon: <IoIcons.IoIosPaper />,
-        cName: 'sub-nav'
-      },
-      {
-        title: 'Reports 3',
-        path: '/reports/reports3',
-        icon: <IoIcons.IoIosPaper />
-      }
-    ]
   },
   {
     title: 'Products',
@@ -128,5 +106,10 @@ export const SidebarData = [
         icon: <IoIcons.IoMdArrowRoundBack />
       }
     ]
+  },
+  {
+    title: 'Transaction',
+    path: '/Transactionlog',
+    icon: <IoIcons.IoIosSpeedometer />
   },
 ];
