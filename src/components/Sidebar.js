@@ -48,12 +48,9 @@ const SidebarNav = styled.nav`
 
   left: ${({ sidebar }) => (!sidebar ? '0' : '-100%')};
   transition: 360ms;
-  z-index: 10;
+  z-index: 20;
 
-  @media screen and (max-width: 700px) {
-    width:0%;
-
-  }
+ 
 `;
 
 const SidebarWrap = styled.div`

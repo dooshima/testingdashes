@@ -11,7 +11,7 @@ const Profile = () => {
 
 <Card >
 
-<div  className ='carding'>
+<div className='displayPatientLog'>
 <h4>Person Information</h4>
 
 

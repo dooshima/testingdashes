@@ -1,9 +1,9 @@
 import React from 'react';
 import './../App.css' ;
-import {createMuiTheme,makeStyles } from '@material-ui/core';
+import {makeStyles } from '@material-ui/core';
 import {Grid,Paper} from "@material-ui/core";
 import { Typography,Button } from '@material-ui/core';
-import { green } from '@material-ui/core/colors';
+import { Accordion,Collapse,Card} from 'react-bootstrap';
 
 
 const useStyles = makeStyles((theme) =>({
@@ -213,7 +213,7 @@ export default function Dashboard () {
                 <Typography variant="h6" gutterBottom className={classes.typo}>
                  Users
                 </Typography>
-                <Button variant="success" href="/Profile" className={classes.ButtonGreen}>       
+                <Button variant="success" href="/AllUserlog" className={classes.ButtonGreen}>       
                        More Info
                 </Button>
               </Grid>
@@ -287,6 +287,73 @@ export default function Dashboard () {
 
       
       </Grid>
+      
+      {/* accordon */}
+      <Grid container spacing={3} style={{marginTop:'30px'}}>
+        <Grid item xs={4} >
+        <Accordion defaultActiveKey="0">
+        <Card>
+          <Accordion.Toggle as={Card.Header} eventKey="0">
+            Click me!
+          </Accordion.Toggle>
+          <Accordion.Collapse eventKey="0">
+            <Card.Body>Hello! I'm the body</Card.Body>
+          </Accordion.Collapse>
+        </Card>
+        <Card>
+          <Accordion.Toggle as={Card.Header} eventKey="1">
+            Click me!
+          </Accordion.Toggle>
+          <Accordion.Collapse eventKey="1">
+            <Card.Body>Hello! I'm another body</Card.Body>
+          </Accordion.Collapse>
+        </Card>
+    </Accordion>
+        </Grid>
+
+        <Grid item xs={4} >
+        <Accordion defaultActiveKey="0">
+        <Card>
+          <Accordion.Toggle as={Card.Header} eventKey="0">
+            Click me!
+          </Accordion.Toggle>
+          <Accordion.Collapse eventKey="0">
+            <Card.Body>Hello! I'm the body</Card.Body>
+          </Accordion.Collapse>
+        </Card>
+        <Card>
+          <Accordion.Toggle as={Card.Header} eventKey="1">
+            Click me!
+          </Accordion.Toggle>
+          <Accordion.Collapse eventKey="1">
+            <Card.Body>Hello! I'm another body</Card.Body>
+          </Accordion.Collapse>
+        </Card>
+</Accordion>
+        </Grid>
+        
+        <Grid item xs={4} >
+        <Accordion defaultActiveKey="0">
+        <Card>
+          <Accordion.Toggle as={Card.Header} eventKey="0">
+            Click me!
+          </Accordion.Toggle>
+          <Accordion.Collapse eventKey="0">
+            <Card.Body>Hello! I'm the body</Card.Body>
+          </Accordion.Collapse>
+        </Card>
+        <Card>
+          <Accordion.Toggle as={Card.Header} eventKey="1">
+            Click me!
+          </Accordion.Toggle>
+          <Accordion.Collapse eventKey="1">
+            <Card.Body>Hello! I'm another body</Card.Body>
+          </Accordion.Collapse>
+        </Card>
+</Accordion>
+        </Grid>
+        
+        </Grid>
       </div>
 
 

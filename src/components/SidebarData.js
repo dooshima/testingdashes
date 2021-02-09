@@ -38,7 +38,7 @@ export const SidebarData = [
   },
   {
     title: 'All Users',
-    path: '/viewUsers',
+    path: '/AllUserlog',
     icon: <IoIcons.IoIosPaper />,
   },
   {
