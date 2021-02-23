@@ -3,8 +3,10 @@ import {makeStyles } from '@material-ui/core';
 import './../App.css' ;
 import {Button, Table} from 'react-bootstrap';
 import Dropdown from 'react-bootstrap/Dropdown';
-import {Grid,Paper} from "@material-ui/core";
 import Sidebar from  '../components/Sidebar';
+import axios from "axios";
+import  Viewdirect  from './Viewdirect';
+
 
 
 const useStyles = makeStyles((theme) =>({
@@ -27,36 +29,36 @@ const useStyles = makeStyles((theme) =>({
 
 
 export default class AllUserlog extends React.Component {
-  //const classes = useStyles();
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      data: false
+     datas:[]
     }
   }
 
-  componentDidMount() {
-    let url = "http://helloworld.com.ng/medflit-api/api/admin/users";
-    fetch(url, {
-      method: 'GET',
-      headers: {
-        'Accept': 'application/json',
-        'Content-type': 'application/json',
-      }
-    }).then((result) => {
-      result.json().then((resp) => {
-        this.setState({ data: resp })
-      })
-    })
-  }
+componentDidMount()
+{
+  axios.get("http://helloworld.com.ng/medflit-api/api/admin/users",{
+        headers: {
+         'Authorization': "Bearer "+ localStorage.getItem('token'),      
+         'Accept': 'application/json',
+         'crendentials':'same-origin',
+         'Content-type': 'application/json',
+         'Access-Control-Allow-Origin' : "*", 
+         "Access-Control-Allow-Credentials" : true 
+          },
+
+       })
+        .then(response => {
+          this.setState({datas:response.data.data.data})
+          console.info(response.data);
+        });
+}
 
   render() {
-    const data = this.state.data;
-    console.info(data);
-
     return (
     <div className='displayPatientLog'>
-                  <Sidebar />
+       <Sidebar />
 
         <div>
             <h2 style={{margin:'10px'}}>All Users</h2>
@@ -71,14 +73,44 @@ export default class AllUserlog extends React.Component {
             <Button variant ="primary" style={{justifyContent:'right'}}>Add User</Button>
         </Grid>
         </Grid> */}
-        <Table striped bordered hover>
-        <tbody>
-        <tr>
+          <Table striped bordered hover>
+              <thead>
+              <tr>
+                <th>#</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>City</th>
 
-          </tr>
-        </tbody>
-      </Table>
-      {/* </Paper> */}
+                <th>Medical Id</th>
+
+
+              </tr>
+              </thead>
+
+              <tbody>
+              {
+                this.state.datas.map(data =>{
+                  return(
+
+                 <tr>
+                      <td key={data.id}>{data.id}</td>
+                      <td key= {data.firstname}>
+                        {data.profile.firstname}</td>
+
+                        <td key= {data.lastname}>
+                          {data.profile.lastname}</td>
+
+                          <td key={data.id}>{data.email}</td>
+                          <td key={data.id}>{data.profile.city}</td>
+                          <td key={data.id}>{data.profile.medical_id}</td>
+
+                  </tr>
+                  )
+                  })
+                  }
+                </tbody>
+            </Table>
       </div>
     )
 }
