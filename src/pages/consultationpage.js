@@ -2,11 +2,14 @@ import React from 'react';
 import { Form,Button } from 'react-bootstrap';
 import {Grid} from "@material-ui/core";
 import { Card,Table,Dropdown } from 'react-bootstrap';
+import Sidebar from  '../components/Sidebar';
 
 
 const consultationpage = () => {
   return (
     <div className='displayPatientLog'>
+         <Sidebar />
+
     <Card className = 'cardCurrent'>
     <h4 className="changeh4">Current Transaction </h4>
 

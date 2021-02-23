@@ -4,11 +4,13 @@ import {Grid} from "@material-ui/core";
 import { Card,Table } from 'react-bootstrap';
 import  nextDirectConsulation from './nextDirectConsulation';
 import  viewConsultation from './viewConsultation';
+import Sidebar from  '../components/Sidebar';
 
 
 const directConsultation = () => {
   return (
     <div className='displayPatientLog'>
+                  <Sidebar />
 
      <Card className = 'cards'>
 

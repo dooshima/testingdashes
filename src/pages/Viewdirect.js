@@ -112,11 +112,11 @@ function Viewdirect () {
   return (
     <div className={classes.root}>
      
-  <Grid container>
+  <Grid container spacing={2}>
     <Grid item xs={3} className={classes.gridone}>
       <Grid item xs={12} className={classes.increaseHeight}>
 
-             <Paper className={classes.paper, classes.avatars}> 
+             <Paper className={classes.paper, classes.avatars} spacing= {3}> 
              <Avatar src="/broken-image.jpg" className={classes.large} />
             
              <Typography variant="h4" gutterBottom className={classes.h2}>
@@ -140,18 +140,25 @@ function Viewdirect () {
               </div>
 
        <Grid item xs={12} className={classes.increaseHeight}>
+       <Dropdown  className={classes.margin, classes.buttons} style={{marginTop:'12px'}}>
+                <Dropdown.Toggle variant="primary" id="dropdown-basic">
+                Get a Doctor
+                </Dropdown.Toggle>
 
-               <Button variant="primary"  onClick={handleShow} className={classes.margin, classes.buttons} style={{marginTop:'12px'}}>       
-                 Get Doctor
-                </Button>
+                <Dropdown.Menu>
+                  <Dropdown.Item href="#" onClick={handleShow} >Add</Dropdown.Item>
+                  
+                  <Dropdown.Item href="#/action-2">Remove</Dropdown.Item>
+                </Dropdown.Menu>
+            </Dropdown>
+       
+      
            <Modal show={show} onHide={handleClose} animation={false}>
-              <Modal.Header closeButton>
-                <Modal.Title>Modal heading</Modal.Title>
-              </Modal.Header>
+              
               <Modal.Body>
               <Grid item xs={12} >
                 <Form.Group controlId="exampleForm.ControlInput1">
-                <Form.Label className = "bankstyle">ID</Form.Label>
+                <Form.Label className = "bankstyle"> Enter ID</Form.Label>
                 <Form.Control type="text" placeholder="" />
                 </Form.Group>
                 </Grid>
@@ -200,7 +207,7 @@ function Viewdirect () {
               </Grid>
               <Modal show={show} onHide={handleClose} animation={false}>
               <Modal.Header closeButton>
-                <Modal.Title>Modal heading</Modal.Title>
+                <Modal.Title>Assign a  Doctor</Modal.Title>
               </Modal.Header>
               <Modal.Body>
               <Grid item xs={12} >

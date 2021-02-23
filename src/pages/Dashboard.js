@@ -4,7 +4,7 @@ import {makeStyles } from '@material-ui/core';
 import {Grid,Paper} from "@material-ui/core";
 import { Typography,Button } from '@material-ui/core';
 import { Accordion,Collapse,Card} from 'react-bootstrap';
-
+import Sidebar from  '../components/Sidebar';
 
 const useStyles = makeStyles((theme) =>({
   root: {
@@ -73,6 +73,8 @@ export default function Dashboard () {
  
   return (
     <div className={classes.root}>
+            <Sidebar />
+
     <Grid container spacing={3} className="gridWeb">
           <Grid item xs={4} >
                 <Paper className={classes.paper} spacing= {10}>          
@@ -294,7 +296,7 @@ export default function Dashboard () {
         <Accordion defaultActiveKey="0">
         <Card>
           <Accordion.Toggle as={Card.Header} eventKey="0">
-            Click me!
+           All Users Transactions
           </Accordion.Toggle>
           <Accordion.Collapse eventKey="0">
             <Card.Body>Hello! I'm the body</Card.Body>

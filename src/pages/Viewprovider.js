@@ -6,6 +6,7 @@ import Avatar from '@material-ui/core/Avatar';
 import { Typography } from '@material-ui/core';
 import {Button} from 'react-bootstrap';
 import TapProvider  from './TapProvider';
+import Sidebar from  '../components/Sidebar';
 
  
 
@@ -65,7 +66,8 @@ function Viewprovider () {
   };
   return (
     <div className={classes.root}>
-     
+                       <Sidebar />
+
     <Grid container spacing={2}>
           <Grid item xs={3} >
              <Paper className={classes.paper, classes.avatars} spacing= {3}> 

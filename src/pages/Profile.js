@@ -3,15 +3,16 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Form,Button,Table } from 'react-bootstrap';
 import {Grid} from "@material-ui/core";
 import { Card } from 'react-bootstrap';
+import Sidebar from  '../components/Sidebar';
 
 
 const Profile = () => {
   return (
     <div >
-
+<Sidebar />
 <Card >
 
-<div className='displayPatientLog'>
+<div style={{marginLeft:'20px'}}>
 <h4>Person Information</h4>
 
 

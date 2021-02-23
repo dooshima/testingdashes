@@ -9,6 +9,8 @@ import { Card } from 'react-bootstrap';
 const Providerdetails = () => {
 
   return (
+    <div>
+
       <Card className = 'cards'>
 
     <div className = 'details'>
@@ -43,6 +45,7 @@ const Providerdetails = () => {
 </div>
 
 </Card>
+</div>
   );
 };
 

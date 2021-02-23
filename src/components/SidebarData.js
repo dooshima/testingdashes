@@ -7,7 +7,7 @@ import * as RiIcons from 'react-icons/ri';
 export const SidebarData = [
   {
     title: 'Dashboard',
-    path: '/',
+    path: '/Dashboard',
     icon: <IoIcons.IoIosSpeedometer />
   },
   {

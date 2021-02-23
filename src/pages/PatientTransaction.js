@@ -2,6 +2,7 @@ import * as React from 'react';
 import { DataGrid } from '@material-ui/data-grid';
 import './../App.css' ;
 import { Table,Pagination } from 'react-bootstrap';
+import Sidebar from  '../components/Sidebar';
 
 
 let active = 2;
@@ -18,6 +19,8 @@ for (let number = 1; number <= 5; number++) {
  const PatientTransaction = () => {
   return (
   
+    <div>
+      <Sidebar />
     <Table striped bordered hover>
     <thead>
       <tr>
@@ -76,7 +79,7 @@ for (let number = 1; number <= 5; number++) {
     <br />
   </div>
   </Table>
-
+</div>
   );
 };
 

@@ -7,6 +7,8 @@ import { Card } from 'react-bootstrap';
 
 const Provideroverview = () => {
   return (
+  <div>
+
 <Card className = 'cards' >
 
 <div  className ='carding'>
@@ -199,7 +201,7 @@ const Provideroverview = () => {
 
 </Card>
 
-
+</div>  
   );
 };
 

@@ -1,11 +1,14 @@
 import React from 'react'
 import {Button, Table} from 'react-bootstrap';
 import Dropdown from 'react-bootstrap/Dropdown';
+import Sidebar from  '../components/Sidebar';
 
 
  function Transactionlog() {
     return (
         <div className='displayPatientLog'>
+       <Sidebar />
+
     <Table striped bordered hover>
     <thead>
       <tr>

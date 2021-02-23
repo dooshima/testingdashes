@@ -93,7 +93,7 @@ export default function Sidebar() {
          <DropDownContainer>
         <DropDownHeader onClick={toggling}>
           {selectedOption ||
-          <UserAvatar size="30" name="Will Binns-Smith" 
+          <UserAvatar size="30" name="W" 
           src="https://pbs.twimg.com/profile_images/429442426038538240/6Ac9kykG_400x400.jpeg"/>
 
 }

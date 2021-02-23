@@ -4,11 +4,14 @@ import { Form,Button } from 'react-bootstrap';
 import {Grid} from "@material-ui/core";
 import { Card } from 'react-bootstrap';
 import  directConsultation from './directConsultation';
+import Sidebar from  '../components/Sidebar';
 
 
 const viewConsultation = () => {
   return (
     <div className='displayPatientLog'>
+                  <Sidebar />
+
       <Card className = 'cardDirect'>
       <h4 className="changeh4">View Direct Consultation</h4>
 

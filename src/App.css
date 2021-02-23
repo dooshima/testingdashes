@@ -9,6 +9,8 @@
   font-size: 13px;
 }
 
+
+
  .home {
   margin-left: 300px;
   width: 100%
@@ -65,7 +67,6 @@ border: darkslategrey solid 3px;
 }
 
 .maxicon{
-  margin-left: 150px;
   height: 25px;
 }
 
@@ -151,4 +152,11 @@ color: white;
   margin-top: 10px;
 }
 
+.loginform{
+  margin-left: 30px;
+  
+}
+.alertstyle{
+  margin-left: 100px;
 
+}

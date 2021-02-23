@@ -2,10 +2,13 @@ import React from 'react';
 import {Button, Table} from 'react-bootstrap';
 import Dropdown from 'react-bootstrap/Dropdown';
 import  viewConsultation  from './viewConsultation';
+import Sidebar from  '../components/Sidebar';
 
 const Consultationlog = () => {
   return (
     <div className='displayPatientLog'>
+          <Sidebar />
+
     <Table striped bordered hover>
     <thead>
       <tr>

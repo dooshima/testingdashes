@@ -3,18 +3,23 @@ import { DataGrid } from '@material-ui/data-grid';
 import './../App.css' ;
 import { Table,Form } from 'react-bootstrap';
 import {Grid} from "@material-ui/core";
+import Sidebar from  '../components/Sidebar';
 
 
 
  const PatientActivity = () => {
   return (
+    <div>
+                  <Sidebar />
+
     <Form>
+      
        <Grid container spacing={3}>
 
         <Grid item xs={12} >
 
       <Form.Group controlId="exampleForm.ControlInput1">
-      <Form.Label >Search</Form.Label>
+      <Form.Label style={{width:'10px'}}>Search</Form.Label>
       <Form.Control type="text" />
     </Form.Group>
     </Grid>
@@ -61,6 +66,7 @@ import {Grid} from "@material-ui/core";
     </tbody>
   </Table>
   </Form>
+  </div>
 
   );
 };

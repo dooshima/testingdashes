@@ -1,8 +1,9 @@
+import React, { Component } from 'react';
 import './App.css';
 import Sidebar from './components/Sidebar';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Dashboard from './pages/Dashboard';
-import { Patientlog } from './pages/Patientlog';
+import Patientlog from './pages/Patientlog';
 import Viewdirect  from './pages/Viewdirect';
 import TapView  from './pages/TapView';
 import Profile  from './pages/Profile';
@@ -25,19 +26,21 @@ import consultationcurrent from './pages/consultationcurrent';
 import consultationpage from './pages/consultationpage';
 import Transactionlog from './pages/Transactionlog';
 import AllUserlog from './pages/AllUserlog';
+import AdminLogin from './pages/AdminLogin';
 
 
 
 function App() {
   return (
     <Router>
-      <Sidebar />
+
       <Switch>
-        <Route path='/' exact component={Dashboard} />
+      <Route path='/' exact component={AdminLogin} />
+
+        <Route path='/Dashboard' exact component={Dashboard} />
         <Route path='/Patientlog' exact component={Patientlog} />
         <Route path='/TapView' exact component={TapView} />
         <Route path='/Viewdirect' exact component={Viewdirect} />
-        {/* <Route exact path='/Viewdirect/:Profile' render = {props => <Viewdirect {...props} />} /> */}
         <Route path='/Profile' exact component={Profile} />
         <Route path='/PatientTransaction' exact component={PatientTransaction} />
         <Route path='/PatientHealth' exact component={PatientHealth} />
@@ -59,9 +62,8 @@ function App() {
         <Route path='/Transactionlog' exact component={Transactionlog} />
         <Route path='/AllUserlog' exact component={AllUserlog} />
 
-         
-        
       </Switch>
+
     </Router>
   );
 }
