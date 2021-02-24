@@ -291,7 +291,7 @@ export default function Dashboard () {
       </Grid>
       
       {/* accordon */}
-      <Grid container spacing={3} style={{marginTop:'30px'}}>
+      {/* <Grid container spacing={3} style={{marginTop:'30px'}}>
         <Grid item xs={4} >
         <Accordion defaultActiveKey="0">
         <Card>
@@ -354,8 +354,8 @@ export default function Dashboard () {
         </Card>
 </Accordion>
         </Grid>
-        
-        </Grid>
+         */}
+        {/* </Grid> */}
       </div>
 
 
