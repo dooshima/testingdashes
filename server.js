@@ -11,10 +11,12 @@ app.get('/api', (req,res) => {
   })
 })
 
+app.use(cors());
+
 app.get('/*',(req,res) => {
   res.header(
     "Access-Control-Allow-Origin",
-    " https://medflit-dashboard.herokuapp.com/http://helloworld.com.ng/medflit-api/api/login"
+    "*"
   );
   res.header(
     "Access-Control-Allow-Headers",
