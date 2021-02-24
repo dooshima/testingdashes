@@ -45,7 +45,7 @@ class AdminLogin extends Component {
 
     storeToken()
     {
-      let store = JSON.parse(localStorage.getItem('token'));
+      let store = localStorage.getItem('token');
       if(store && store.login){
         this.setState({login:true, stroe: store})
       }
@@ -57,7 +57,14 @@ class AdminLogin extends Component {
         password:this.state.password
       }
     
-      axios.post("http://helloworld.com.ng/medflit-api/api/login", data)
+      axios.post("http://helloworld.com.ng/medflit-api/api/login",{
+        headers: {
+          'Accept': 'application/json',
+          'crendentials':'same-origin',
+          'Content-type': 'application/json',
+          'Access-Control-Allow-Origin': true
+        },
+           }, data)
             .then(res =>{
               this.setState({alert_message:"Success"})
               this.props.history.push('/Dashboard')

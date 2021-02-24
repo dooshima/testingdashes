@@ -66,11 +66,11 @@ function Viewprovider () {
   };
   return (
     <div className={classes.root}>
-                       <Sidebar />
+       <Sidebar />
 
     <Grid container spacing={2}>
           <Grid item xs={3} >
-             <Paper className={classes.paper, classes.avatars} spacing= {3}> 
+             <Paper className={classes.paper, classes.avatars} spacing= {1}> 
              <Avatar src="/broken-image.jpg" className={classes.large} />
             
              <h3 variant="h4" gutterBottom className={classes.h2}>

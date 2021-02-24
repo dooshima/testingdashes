@@ -3,12 +3,15 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Form,Button } from 'react-bootstrap';
 import {Grid} from "@material-ui/core";
 import { Card,Table } from 'react-bootstrap';
+import Sidebar from  '../components/Sidebar';
 
 
 
 const consultationcurrent = () => {
   return (
     <div className='displayPatientLog'>
+               <Sidebar />
+
     <Card className = 'cardCurrent'>
     <h4 className="changeh4">Current Transaction </h4>
 

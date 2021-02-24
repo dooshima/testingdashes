@@ -29,7 +29,7 @@ const options = ["Profile", "Balance", "Inbox","Setting", "Logout"];
 
 
 const NavIcon = styled(Link)`
-  margin-left: 7rem;
+  margin-left: 3rem;
   font-size: 2rem;
   height: 80px;
   display: flex;
