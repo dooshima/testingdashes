@@ -14,7 +14,7 @@ app.get('/api', (req,res) => {
 app.get('/*',(req,res) => {
   res.header(
     "Access-Control-Allow-Origin",
-    "https://helloworld.com.ng/medflit-api/api/login",
+    "http://helloworld.com.ng/medflit-api/api/login",
     "Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept"
   );
