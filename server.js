@@ -14,10 +14,7 @@ app.get('/api', (req,res) => {
 app.use(cors());
 
 app.get('/*',(req,res) => {
-  res.header(
-    "Access-Control-Allow-Origin",
-    "*"
-  );
+  
   res.header(
     "Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept"
