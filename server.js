@@ -14,7 +14,7 @@ app.get('/api', (req,res) => {
 app.use(cors());
 
 app.get('/*',(req,res) => {
-   res.header('Access-Control-Allow-Origin', 'http://localhost:8080');
+   res.header('Access-Control-Allow-Origin', 'http://helloworld.com.ng/medflit-api/api/login');
     res.header('Access-Control-Allow-Headers', 'Content-Type, token, authorization');
     res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
 
