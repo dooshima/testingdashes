@@ -2,6 +2,10 @@
   "name": "medflitdashboard",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "14.15.4",
+    "npm":"6.14.11"
+  },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.34",
     "@fortawesome/free-brands-svg-icons": "^5.15.2",
@@ -44,16 +48,19 @@
     "react-table": "^7.6.3",
     "react-user-avatar": "^1.10.0",
     "reactstrap": "^8.8.1",
+    "serve": "^11.3.2",
     "styled-components": "^5.2.1",
     "universal-cookie": "^4.0.4",
     "web-vitals": "^0.2.4",
     "yup": "^0.32.8"
   },
   "scripts": {
-    "start": "node server.js",
+    "dev": "react-scripts start",
+    "start": "serve -s build",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "heroku-postbuild": "npm run build"
   },
   "eslintConfig": {
     "extends": [
