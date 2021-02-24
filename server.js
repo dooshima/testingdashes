@@ -14,13 +14,11 @@ app.get('/api', (req,res) => {
 app.get('/*',(req,res) => {
   res.header(
     "Access-Control-Allow-Origin",
-    "https://helloworld.com.ng/medflit-api/api/login"
-  );
-  res.header(
+    "https://helloworld.com.ng/medflit-api/api/login",
     "Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept"
   );
-
+ 
   res.sendFile(path.join(__dirname , 'build', 'index.html'))
 })
 
