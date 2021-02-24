@@ -11,12 +11,10 @@ app.get('/api', (req,res) => {
   })
 })
 
-app.use(cors());
-
 app.get('/*',(req,res) => {
-   res.header('Access-Control-Allow-Origin', 'https://helloworld.com.ng/medflit-api/api/login');
-    res.header('Access-Control-Allow-Headers', 'Content-Type, token, authorization');
-    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  res.header(
+    "Access-Control-Allow-Origin",
+    );
 
   res.sendFile(path.join(__dirname , 'build', 'index.html'))
 })
@@ -26,3 +24,14 @@ app.listen(port, _ =>{
 })
 
 
+// app.use(favicon(__dirname + '/build/favicon.ico'));
+// // the __dirname is the current directory from where the script is running
+// app.use(express.static(__dirname));
+// app.use(express.static(path.join(__dirname, 'build')));
+// app.get('/ping', function (req, res) {
+//  return res.send('pong');
+// });
+// app.get('/*', function (req, res) {
+//   res.sendFile(path.join(__dirname, 'build', 'index.html'));
+// });
+// app.listen(port);
