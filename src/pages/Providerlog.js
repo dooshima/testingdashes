@@ -5,25 +5,51 @@ import {Button, Table} from 'react-bootstrap';
 import Sidebar from  '../components/Sidebar';
 import axios from "axios"
 import Dropdown from 'react-bootstrap/Dropdown';
- 
+import Pagination from "react-js-pagination";
+
 
 export default class Providerlog extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-     datas:[]
+     datas:[],
+     activePage:1,
+     itemsCountPerPage:1,
+     totalItemsCount:1
     }
+    this.handlePageChange = this.handlePageChange.bind(this);
   }
 
 componentDidMount()
 {
   axios.get('http://helloworld.com.ng/medflit-api/api/providers/find')
         .then(response => {
-          this.setState({datas:response.data.data})
+          this.setState({
+            datas:response.data.data,
+            itemsCountPerPage:response.data.per_page,
+            // totalItemsCount:response.data
+          activePage:response.data.current_page,
+          });
           console.info(response.data);
         });
 }
 
+handlePageChange(pageNumber) {
+  console.log(`active page is ${pageNumber}`);
+  
+  //this.setState({activePage: pageNumber});
+  axios.get('http://helloworld.com.ng/medflit-api/api/providers/find?page='+pageNumber)
+        .then(response => {
+          console.info(response.data);
+
+          this.setState({
+            datas:response.data.data,
+            itemsCountPerPage:response.data.per_page,
+            // totalItemsCount:response.data
+          activePage:response.data.current_page,
+          });
+        });
+}
 
 
   render() {
@@ -55,21 +81,27 @@ componentDidMount()
 
               <tbody>
                 {
-                this.state.datas.map(data =>{
-                  return(
+                this.state.datas ?
 
+                this.state.datas.map((data, index) =>{
+                  console.log(data);
+                  if(data.provider==null){
+                    return;
+                  }
+                  return(
+                  
                  <tr>
-                      <td key={data.id}>{data.id}</td>
-                      <td key={data.name}>{data.provider.profession.name}</td>
-                      <td key= {data.firstname && data.lastname}>
+                      <td key={index}>{data.id}</td>
+                      <td key={index}>{data.provider.profession_label==null?"":data.provider.profession_label}</td>
+                      <td key={index}>
                         {data.profile.firstname}{data.profile.lastname}</td>
-                     <td key={data.name}>{data.provider.hospital_name}</td>
-                     <td key={data.phone}>{data.username}</td>
-                     <td key={data.phone}>{data.username}</td>
-                     <td key={data.phone}>{data.username}</td>
-                     <td key={data.phone}>{data.username}</td>
-                     <td key={data.phone}>{data.username}</td>
-                     <td key={data.phone}>{data.username}</td>
+                     <td key={index}>{data.provider.hospital_name}</td>
+                     <td key={index}>{data.username}</td>
+                     <td key={index}>{data.username}</td>
+                     <td key={index}>{data.username}</td>
+                     <td key={index}>{data.username}</td>
+                     <td key={index}>{data.username}</td>
+                     <td key={index}>{data.username}</td>
 
                      <td key={data.id}>
                       <Dropdown>
@@ -86,11 +118,25 @@ componentDidMount()
 
                   </tr>
                   )
+                 
                   })
+                  :
+                  <p>Loading....</p>
                   }
                 </tbody>
             </Table>
-          
+            <div className="d-flex justify-content-end">
+            <Pagination
+              activePage={this.state.activePage}
+              itemsCountPerPage={this.state.itemsCountPerPage}
+              totalItemsCount={450}
+              pageRangeDisplayed={3}
+              onChange={this.handlePageChange.bind(this)}
+              itemClass	= 'page-item'
+              linkClass = 'page-link'
+            
+        />
+      </div>
       </div>
     )
   }

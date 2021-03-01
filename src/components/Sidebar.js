@@ -29,7 +29,6 @@ const options = ["Profile", "Balance", "Inbox","Setting", "Logout"];
 
 
 const NavIcon = styled(Link)`
-  margin-left: 3rem;
   font-size: 2rem;
   height: 80px;
   display: flex;
@@ -45,6 +44,7 @@ const SidebarNav = styled.nav`
   position: absolute;
   top: 0;
   overflow: scroll;
+  
 
   left: ${({ sidebar }) => (!sidebar ? '0' : '-100%')};
   transition: 360ms;
@@ -114,9 +114,9 @@ export default function Sidebar() {
         </Nav>
 
 
-        <SidebarNav sidebar={sidebar} className="sidebar">
+        <SidebarNav sidebar={sidebar}>
           <SidebarWrap>
-            <NavIcon to='#'>
+            <NavIcon to='#' className="headerColor">
               <FaIcons.FaBars onClick={showSidebar} className= "mini" />
             </NavIcon>
             {SidebarData.map((item, index) => {

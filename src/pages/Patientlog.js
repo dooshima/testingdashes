@@ -6,6 +6,7 @@ import axios from "axios";
 import  Viewdirect  from './Viewdirect';
 import { Link } from 'react-router-dom';
 import Dropdown from 'react-bootstrap/Dropdown';
+import Pagination from "react-js-pagination";
 
 
 
@@ -19,29 +20,24 @@ const session ={
 console.warn(session);
 
 
-// axios.interceptors.request.use(
-//   config=>{
-//     config.headers.authorization = `Bearer ${session}`;
-//     return config;
-//   },
-//   error =>{
-//     return Promise.reject(error);
-//   }
-// )
-
 
 export default class Patientlog extends Component {
 
    constructor(props) {
     super(props);
     this.state = {
-     datas:[]
+     datas:[],
+     activePage:1,
+     itemsCountPerPage:1,
+     totalItemsCount:1
     }
+    this.handlePageChange = this.handlePageChange.bind(this);
+
   }
 
 componentDidMount()
 {
-  api.get('',{
+  axios.get('http://helloworld.com.ng/medflit-api/api/patients/find',{
         headers: {
          'Authorization': "Bearer "+ localStorage.getItem('token'),      
          'Accept': 'application/json',
@@ -53,10 +49,41 @@ componentDidMount()
 
        })
         .then(response => {
-          this.setState({datas:response.data.data})
+          this.setState({
+            datas:response.data.data,
+            itemsCountPerPage:response.data.per_page,
+            // totalItemsCount:response.data
+          activePage:response.data.current_page,
+          
+          })
           console.info(response.data);
         });
 }
+
+handlePageChange(pageNumber) {
+  console.log(`active page is ${pageNumber}`);
+  axios.get('http://helloworld.com.ng/medflit-api/api/patients/find?page='+pageNumber,{
+    headers: {
+      'Authorization': "Bearer "+ localStorage.getItem('token'),      
+      'Accept': 'application/json',
+      'crendentials':'same-origin',
+      'Content-type': 'application/json',
+      'Access-Control-Allow-Origin' : "*", 
+      "Access-Control-Allow-Credentials" : true 
+       },
+
+  })
+        .then(response => {
+          this.setState({
+            datas:response.data.data,
+            itemsCountPerPage:response.data.per_page,
+            // totalItemsCount:response.data
+          activePage:response.data.current_page,
+          });
+          console.info(response.data);
+        });
+}
+
 
 
   render() {
@@ -86,25 +113,25 @@ componentDidMount()
 
               <tbody>
               {
-                this.state.datas.map(data =>{
+                this.state.datas.map((data,index )=>{                 
                   return(
 
                  <tr>
-                      <td key={data.id}>{data.id}</td>
-                      <td key= {data.firstname}>
+                      <td key={index}>{data.id}</td>
+                      <td key= {index}>
                         {data.profile.firstname}</td>
 
-                        <td key= {data.lastname}>
+                        <td key= {index}>
                           {data.profile.lastname}</td>
 
-                          <td key={data.id}>{data.profile.id}</td>
+                          <td key={index}>{data.profile.id}</td>
 
-                          <td key={data.id}>{data.subscription.expired}</td>
-                          <td key={data.id}>{data.subscription.expires_at}</td>
-                          <td key={data.id}>{data.subscription.starts_at}</td>
+                          <td key={index}>{data.subscription.expired}</td>
+                          <td key={index}>{data.subscription.expires_at}</td>
+                          <td key={index}>{data.subscription.starts_at}</td>
 
-                          <td key={data.id}>{data.subscription.active}</td>
-                          <td key={data.id}>
+                          <td key={index}>{data.subscription.active}</td>
+                          <td key={index}>
                             <Dropdown>
                             <Dropdown.Toggle variant="success" id="dropdown-basic">
                             Action
@@ -117,11 +144,7 @@ componentDidMount()
                             </Dropdown.Menu>
                         </Dropdown></td>
 
-                      {/* <td key={data.name}>{data.provider.profession.name}</td>
-                    
-                     <td key={data.name}>{data.provider.hospital_name}</td>
-                     <td key={data.phone}>{data.phone}</td> */}
-
+          
 
                   </tr>
                   )
@@ -129,6 +152,18 @@ componentDidMount()
                   }
                 </tbody>
             </Table>
+            <div className="d-flex justify-content-end">
+            <Pagination
+              activePage={this.state.activePage}
+              itemsCountPerPage={this.state.itemsCountPerPage}
+              totalItemsCount={450}
+              pageRangeDisplayed={3}
+              onChange={this.handlePageChange.bind(this)}
+              itemClass	= 'page-item'
+              linkClass = 'page-link'
+            
+        />
+      </div>
       </div>
     )
   }

@@ -1,28 +1,73 @@
-import React from 'react';
+import  React, {Component} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Form,Button,Table } from 'react-bootstrap';
 import {Grid} from "@material-ui/core";
 import { Card } from 'react-bootstrap';
-import Sidebar from  '../components/Sidebar';
+import axios from "axios";
 
 
-const Profile = () => {
+
+const api = axios.create({
+  baseURL:`http://helloworld.com.ng/medflit-api/api/patients/find`
+});
+
+const session ={
+  token: localStorage.getItem('token'),
+}
+console.warn(session);
+
+
+
+export default class Profile extends Component{
+  constructor(props) {
+    super(props);
+    this.state = {
+     datas:[]
+    }
+  }
+
+componentDidMount()
+{
+  api.get('',{
+        headers: {
+         'Authorization': "Bearer "+ localStorage.getItem('token'),      
+         'Accept': 'application/json',
+         'crendentials':'same-origin',
+         'Content-type': 'application/json',
+         'Access-Control-Allow-Origin' : "*", 
+         "Access-Control-Allow-Credentials" : true 
+          },
+
+       })
+        .then(response => {
+          this.setState({datas:response.data.data})
+          console.info(response.data);
+        });
+}
+
+  render() {
   return (
-    <div >
-<Sidebar />
+    <div>
 <Card >
 
-<div style={{marginLeft:'250px'}}>
+<div style={{marginLeft:'20px'}}>
 <h4>Person Information</h4>
-
+{
+ this.state.datas.map(data =>{
+  return(
 
  <Form>
- <Grid container spacing={3}>
+
+ <Grid container spacing={1}>
    
  <Grid item xs={6} >
 <Form.Group controlId="exampleForm.ControlInput1">
 <Form.Label className = "bankstyle">Full Name</Form.Label>
-<Form.Control type="text" placeholder="" />
+<Form.Control 
+type="text" 
+placeholder=""
+key= {data.id}
+value ={data.profile.firstname} />
 </Form.Group>
 </Grid>
 
@@ -30,7 +75,10 @@ const Profile = () => {
 <Grid item xs={6} >
 <Form.Group controlId="exampleForm.ControlInput1">
 <Form.Label className = "bankstyle">Email</Form.Label>
-<Form.Control type="email" placeholder="" />
+<Form.Control type="email" placeholder=""
+key= {data.id}
+value ={data.email}
+/>
 </Form.Group>
 </Grid>
 
@@ -130,12 +178,16 @@ const Profile = () => {
           Update profile
   
 </Button>
+
+
 </Form>
+)
+})
+}
 </div>
 
 </Card>
 </div>
   );
-};
-
-export default Profile;
+}
+}

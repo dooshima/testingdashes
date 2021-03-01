@@ -27,14 +27,16 @@ const useStyles = makeStyles((theme) =>({
   },
  avatars:{
    marginTop:'90px',
-  height:'55%',
   borderTop: 'blue solid 3px',
+  height:'70%'
+
+
  },
  large: {
   width: theme.spacing(9),
   height: theme.spacing(9),
   marginLeft:'60px',
-  marginTop:'30px',
+  marginTop:'10px',
 },
 
 typo:{
@@ -46,15 +48,18 @@ h2:{
 },
 buttons:{
   display:'flex',
-  justifyContent:'right',
+  justifyContent:'center',
   marginLeft:'50px',
+  marginBottom:'20px'
 
 },
 stylep:{
   marginLeft:'80px',
 
+},
+increaseHeight:{
+  height:'400px',
 }
-
 }));
 
 function Viewprovider () {
@@ -68,8 +73,8 @@ function Viewprovider () {
     <div className={classes.root}>
        <Sidebar />
 
-    <Grid container spacing={2}>
-          <Grid item xs={3} >
+    <Grid container spacing={1}>
+          <Grid item xs={3} className = {classes.increaseHeight} >
              <Paper className={classes.paper, classes.avatars} spacing= {1}> 
              <Avatar src="/broken-image.jpg" className={classes.large} />
             
@@ -81,7 +86,7 @@ function Viewprovider () {
                 </p>
 
               <div>
-                <Button variant="primary" color="primary" className={classes.margin, classes.buttons}>
+                <Button variant="primary" color="primary" className={ classes.buttons}>
                     Change Password
                 </Button>
               </div>

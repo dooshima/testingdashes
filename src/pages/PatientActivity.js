@@ -3,15 +3,12 @@ import { DataGrid } from '@material-ui/data-grid';
 import './../App.css' ;
 import { Table,Form } from 'react-bootstrap';
 import {Grid} from "@material-ui/core";
-import Sidebar from  '../components/Sidebar';
 
 
 
  const PatientActivity = () => {
   return (
     <div>
-                  <Sidebar />
-
     <Form>
       
        <Grid container spacing={3}>

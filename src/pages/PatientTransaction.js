@@ -20,7 +20,6 @@ for (let number = 1; number <= 5; number++) {
   return (
   
     <div>
-      <Sidebar />
     <Table striped bordered hover>
     <thead>
       <tr>

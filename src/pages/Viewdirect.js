@@ -8,6 +8,7 @@ import { Button } from 'react-bootstrap';
 import TapView from './TapView';
 import PatientModal from './PatientModal';
 import { Modal,Dropdown,Form } from 'react-bootstrap';
+import Sidebar from  '../components/Sidebar';
 
 
 
@@ -30,8 +31,8 @@ const useStyles = makeStyles((theme) =>({
  avatars:{
    marginTop:'90px',
    width:'95%',
-  height:'100%',
   borderTop: '#007bff solid 3px',
+  height:'100%'
  },
  otherStyle:{
   width:'95%',
@@ -111,12 +112,13 @@ function Viewdirect () {
   
   return (
     <div className={classes.root}>
-     
+         <Sidebar />
+
   <Grid container spacing={2}>
     <Grid item xs={3} className={classes.gridone}>
       <Grid item xs={12} className={classes.increaseHeight}>
 
-             <Paper className={classes.paper, classes.avatars} spacing= {3}> 
+             <Paper className={classes.paper, classes.avatars} spacing= {1}> 
              <Avatar src="/broken-image.jpg" className={classes.large} />
             
              <Typography variant="h4" gutterBottom className={classes.h2}>
@@ -142,7 +144,7 @@ function Viewdirect () {
        <Grid item xs={12} className={classes.increaseHeight}>
        <Dropdown  className={classes.margin, classes.buttons} style={{marginTop:'12px'}}>
                 <Dropdown.Toggle variant="primary" id="dropdown-basic">
-                Get a Doctor
+                Assign a Doctor
                 </Dropdown.Toggle>
 
                 <Dropdown.Menu>
@@ -158,7 +160,7 @@ function Viewdirect () {
               <Modal.Body>
               <Grid item xs={12} >
                 <Form.Group controlId="exampleForm.ControlInput1">
-                <Form.Label className = "bankstyle"> Enter ID</Form.Label>
+                <Form.Label className = "bankstyle"> Enter Doctor's ID</Form.Label>
                 <Form.Control type="text" placeholder="" />
                 </Form.Group>
                 </Grid>
