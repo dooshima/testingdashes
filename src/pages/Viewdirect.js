@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import './../App.css' ;
 import {makeStyles } from '@material-ui/core';
 import {Grid,Paper} from "@material-ui/core";
@@ -9,8 +9,8 @@ import TapView from './TapView';
 import PatientModal from './PatientModal';
 import { Modal,Dropdown,Form } from 'react-bootstrap';
 import Sidebar from  '../components/Sidebar';
-
-
+import { useParams } from "react-router-dom";
+import axios from "axios";
 
 
 const useStyles = makeStyles((theme) =>({
@@ -96,10 +96,15 @@ increaseHeight:{
 }
 }));
 
-function Viewdirect () {
+function Viewdirect (props) {
   const [show, setShow] = useState(false);
+  const [datas, setDatas] = useState({});
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const [subscription, setSubscription] = useState({});
+
+  const id = useParams('id');
 
   const classes = useStyles();
   const [value, setValue] = React.useState(2);
@@ -108,11 +113,33 @@ function Viewdirect () {
     setValue(newValue);
   };
  
+useEffect(() => {
+  console.warn(props);
+  axios.get(`https://helloworld.com.ng/medflit-api/api/admin/users/find?id=${id.id}`,{
+    headers: {
+     'Authorization': "Bearer "+ localStorage.getItem('token'),      
+     'Accept': 'application/json',
+     'crendentials':'same-origin',
+     'Content-type': 'application/json',
+     'Access-Control-Allow-Origin' : "*", 
+     "Access-Control-Allow-Credentials" : true 
+      },
 
+   })
+    .then(response => {
+        setSubscription(response.data.data.subscription)
+        setDatas(response.data.data.biodata)
+      console.info(response.data);
+
+
+    });
+
+})
   
   return (
     <div className={classes.root}>
          <Sidebar />
+
 
   <Grid container spacing={2}>
     <Grid item xs={3} className={classes.gridone}>
@@ -121,8 +148,8 @@ function Viewdirect () {
              <Paper className={classes.paper, classes.avatars} spacing= {1}> 
              <Avatar src="/broken-image.jpg" className={classes.large} />
             
-             <Typography variant="h4" gutterBottom className={classes.h2}>
-                John Doe
+             <Typography variant="h6" gutterBottom className={classes.h2}>
+               {datas.firstname}{datas.lastname}
                 </Typography>
                <Typography variant="p" gutterBottom className={classes.typo}>
                 Patient
@@ -268,8 +295,10 @@ function Viewdirect () {
             Location
           </p>
 
-          <p>
-            Babajide Ogundipe, PT, Oxon Hill Road, Oxon Hill, MD, USA
+          <p style={{color:'green'}}>
+          Your current subscription will end on <span style={{color:'blue'}}>{`${subscription.expires_at}`}</span>  .
+          You can make calls to doctors on Subscription plan till then (for free).
+           
           </p>
           </Grid>
 
@@ -302,12 +331,13 @@ function Viewdirect () {
 
         <Grid item xs={9}>
           <Paper className={classes.paper, classes.another} >
-          <TapView/>
+          <TapView id={id}/>
             
           </Paper>
         </Grid>
       </Grid>
- 
+   )
+  
       </div>
    
     

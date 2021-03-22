@@ -15,14 +15,15 @@ export default class Providerlog extends React.Component {
      datas:[],
      activePage:1,
      itemsCountPerPage:1,
-     totalItemsCount:1
+     totalItemsCount:1,
+     loading:true,
     }
     this.handlePageChange = this.handlePageChange.bind(this);
   }
 
 componentDidMount()
 {
-  axios.get('http://helloworld.com.ng/medflit-api/api/providers/find')
+  axios.get('https://helloworld.com.ng/medflit-api/api/providers')
         .then(response => {
           this.setState({
             datas:response.data.data,
@@ -38,7 +39,7 @@ handlePageChange(pageNumber) {
   console.log(`active page is ${pageNumber}`);
   
   //this.setState({activePage: pageNumber});
-  axios.get('http://helloworld.com.ng/medflit-api/api/providers/find?page='+pageNumber)
+  axios.get('https://helloworld.com.ng/medflit-api/api/providers/find?page='+pageNumber)
         .then(response => {
           console.info(response.data);
 
@@ -80,11 +81,13 @@ handlePageChange(pageNumber) {
               </thead>
 
               <tbody>
+          
                 {
-                this.state.datas ?
+                 
 
                 this.state.datas.map((data, index) =>{
-                  console.log(data);
+                 console.log(data);
+              
                   if(data.provider==null){
                     return;
                   }
@@ -120,8 +123,7 @@ handlePageChange(pageNumber) {
                   )
                  
                   })
-                  :
-                  <p>Loading....</p>
+                
                   }
                 </tbody>
             </Table>

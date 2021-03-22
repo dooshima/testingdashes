@@ -57,7 +57,7 @@ class AdminLogin extends Component {
         password:this.state.password
       }
     
-      axios.post("http://helloworld.com.ng/medflit-api/api/login",{
+      axios.post("https://helloworld.com.ng/medflit-api/api/login",{
         headers: {
           'Accept': 'application/json',
           'crendentials':'same-origin',

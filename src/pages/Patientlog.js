@@ -1,4 +1,4 @@
-import  React, {Component} from 'react';
+ import  React, {Component} from 'react';
 import './../App.css' ;
 import {Button, Table} from 'react-bootstrap';
 import Sidebar from  '../components/Sidebar';
@@ -29,7 +29,8 @@ export default class Patientlog extends Component {
      datas:[],
      activePage:1,
      itemsCountPerPage:1,
-     totalItemsCount:1
+     totalItemsCount:1,
+   
     }
     this.handlePageChange = this.handlePageChange.bind(this);
 
@@ -138,7 +139,7 @@ handlePageChange(pageNumber) {
                             </Dropdown.Toggle>
 
                             <Dropdown.Menu>
-                              <Dropdown.Item href="/Viewdirect">View</Dropdown.Item>
+                              <Dropdown.Item href={`/viewdirect/${data.id}`}>View</Dropdown.Item>
                               <Dropdown.Item href="#/action-2">Block</Dropdown.Item>
                               <Dropdown.Item href="#/action-3">Delete</Dropdown.Item>
                             </Dropdown.Menu>

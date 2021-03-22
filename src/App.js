@@ -38,10 +38,12 @@ function App() {
       <Route path='/' exact component={AdminLogin} />
 
         <Route path='/Dashboard' exact component={Dashboard} />
+
         <Route path='/Patientlog' exact component={Patientlog} />
-        <Route path='/TapView' exact component={TapView} />
-        <Route path='/Viewdirect' exact component={Viewdirect} />
-        <Route path='/Profile' exact component={Profile} />
+
+        <Route path='/tapview/:id' exact component={TapView} />
+        <Route path='/viewdirect/:id' exact component={Viewdirect} />
+        <Route path='/Profile/:id' exact component={Profile} />
         <Route path='/PatientTransaction' exact component={PatientTransaction} />
         <Route path='/PatientHealth' exact component={PatientHealth} />
         <Route path='/PatientActivity' exact component={PatientActivity} />

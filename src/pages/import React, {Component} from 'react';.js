@@ -1,5 +1,4 @@
 import  React, {Component} from 'react';
-import {withRouter} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Form,Button,Table } from 'react-bootstrap';
 import {Grid} from "@material-ui/core";
@@ -7,25 +6,29 @@ import { Card } from 'react-bootstrap';
 import axios from "axios";
 
 
+
+const api = axios.create({
+  baseURL:`http://helloworld.com.ng/medflit-api/api/patients/find`
+});
+
 const session ={
   token: localStorage.getItem('token'),
 }
-// console.warn(session);
+console.warn(session);
 
 
 export default class Profile extends Component{
   constructor(props) {
     super(props);
     this.state = {
-      datas:"",
+     datas:[],
     }
   }
 
 
 componentDidMount()
 {
-  //  console.log(this.props.id.id.id);
-  axios.get(`https://helloworld.com.ng/medflit-api/api/admin/users/find?id=${this.props.id.id.id}`,{
+  api.get('' ,{
         headers: {
          'Authorization': "Bearer "+ localStorage.getItem('token'),      
          'Accept': 'application/json',
@@ -37,95 +40,102 @@ componentDidMount()
 
        })
         .then(response => {
-          this.setState(
-            {   
-              datas:response.data.data,
-            })
-          // console.info(response.data.data);
-          console.info(this.state.datas);
-
+          this.setState({datas:response.data.data})
+          console.info(response.data);
 
         });
-
 }
 
+// onView = id =>{
+//   //console.log('work work', id);
+//   this.props.onView(this.props.data.id);
+// }
   render() {
   return (
 <div>
-{
-  this.state.datas
-  ?
-<Form>
-<Grid container spacing={1}>
-    <Grid item xs={6} >
-          <Form.Group controlId="exampleForm.ControlInput1">
-          <Form.Label className = "bankstyle">Full Name</Form.Label>
-          <Form.Control 
-          type="text" 
-          placeholder=""
-          value ={this.state.datas.profile.firstname} />
-          </Form.Group>
-          </Grid>
+      <Card >
+
+      <div style={{marginLeft:'20px'}}>
+      <h4>Person Information</h4>
+      {
+      this.state.datas.map((data,i) =>{
+        console.log(Array.isArray(this.state.datas));
+
+        return(
+
+      <Form>
+
+      <Grid container spacing={1}>
+        
+      <Grid item xs={6} >
+      <Form.Group controlId="exampleForm.ControlInput1">
+      <Form.Label className = "bankstyle">Full Name</Form.Label>
+      <Form.Control 
+      type="text" 
+      placeholder=""
+      key= {data.id}
+      value ={data.firstname} />
+      </Form.Group>
+      </Grid>
 
 
-    <Grid item xs={6} >
+      <Grid item xs={6} >
       <Form.Group controlId="exampleForm.ControlInput1">
       <Form.Label className = "bankstyle">Email</Form.Label>
       <Form.Control type="email" placeholder=""
-      value ={this.state.datas.email}
+      key= {data.id}
+      value ={data.email}
       />
       </Form.Group>
-      </Grid>  
+      </Grid>
 
       <Grid item xs={6} >
         <Form.Group controlId="exampleForm.ControlInput1">
           <Form.Label  className = "bankstyle">Username</Form.Label>
-          <Form.Control 
-          type="text"
-           placeholder="" 
-           value ={this.state.datas.username}
-           />
+          <Form.Control type="text" placeholder="" />
         </Form.Group>
       </Grid>
 
       <Grid item xs={6} >
         <Form.Group controlId="exampleForm.ControlInput1">
           <Form.Label  className = "bankstyle">Phone Number</Form.Label>
-          <Form.Control 
-          type="text"
-           placeholder="" 
-           value ={this.state.datas.phone}
-           />
+          <Form.Control type="text" placeholder="" />
         </Form.Group>
         </Grid>
 
-        <Grid item xs={6} >
+
+
+      <Grid item xs={6} >
             <Form.Group controlId="BankName:">
               <Form.Label className = "bankstyle">Gender</Form.Label>
-              <Form.Control 
-                type="text"
-                placeholder="" 
-                value ={this.state.datas.profile.gender}
-           />
+              <Form.Control as="select">
+                <option>Male</option>
+                <option>Female</option>
+                
+              </Form.Control>
         </Form.Group>
         </Grid>
       
-        <Grid item xs={6} >
+
+      <Grid item xs={6} >
             <Form.Group controlId="BankName:">
               <Form.Label className = "bankstyle">Age</Form.Label>
-              <Form.Control 
-                type="text"
-                placeholder="" 
-                value ={this.state.datas.profile.gender} />
+              <Form.Control as="select">
+                <option>less 25</option>
+                <option>25-50</option>
+                <option> More 50</option>
+
+              </Form.Control>
         </Form.Group>
         </Grid>
         <Grid item xs={6} >
             <Form.Group controlId="BankName:">
               <Form.Label className = "bankstyle">Weight</Form.Label>
-              <Form.Control 
-                type="text"
-                placeholder="" 
-                value ={this.state.datas.profile.gender} />
+              <Form.Control as="select">
+                <option>Angola</option>
+                <option>Australia</option>
+                
+              </Form.Control>
         </Form.Group>
         </Grid>
         
@@ -133,20 +143,22 @@ componentDidMount()
         <Grid item xs={6} >
             <Form.Group controlId="BankName:">
               <Form.Label className = "bankstyle">Blood type</Form.Label>
-              <Form.Control 
-                type="text"
-                placeholder="" 
-                value ={this.state.datas.profile.gender} />
+              <Form.Control as="select">
+                <option>Angola</option>
+                <option>Australia</option>
+                
+              </Form.Control>
         </Form.Group>
         </Grid>
 
         <Grid item xs={6} >
             <Form.Group controlId="BankName:">
               <Form.Label className = "bankstyle">Height</Form.Label>
-              <Form.Control 
-                type="text"
-                placeholder="" 
-                value ={this.state.datas.profile.gender} />
+              <Form.Control as="select">
+                <option>Angola</option>
+                <option>Australia</option>
+                
+              </Form.Control>
         </Form.Group>
         </Grid>
 
@@ -163,27 +175,26 @@ componentDidMount()
         <Grid item xs={6} >
         <Form.Group controlId="exampleForm.ControlInput1">
           <Form.Label  className = "bankstyle">City</Form.Label>
-          <Form.Control type="text"
-           placeholder="" 
-           value ={this.state.datas.biodata.city}
-          />
+          <Form.Control type="text" placeholder="" />
         </Form.Group>
         </Grid>
 
-        <Grid item xs={6} >
 
+      </Grid>
       <Button variant="success">          
                 Update profile
         
       </Button>
-</Grid>
 
 
-</Grid>
-</Form>
-:<p>loading</p> 
-}
+      </Form>
+      )
+      })
+      }
+      </div>
+
+      </Card>
 </div>
-);
+  );
 }
 }

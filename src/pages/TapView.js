@@ -9,8 +9,8 @@ import PatientActivity  from './PatientActivity';
 
 
 
-const TapView = () => {
-  
+const TapView = (id) => {
+  // console.warn(id);
   const [value, setValue] = React.useState(2);
 
   const handleChange = (event, newValue) => {
@@ -33,7 +33,7 @@ const TapView = () => {
 
                 </Tabs>
 
-          {value === 0 && <Profile/>}
+          {value === 0 && <Profile id ={id}/>}
           {value === 1 && <PatientTransaction/>}
           {value === 2 && <PatientHealth/>}
           {value === 3 && <PatientActivity/>}
