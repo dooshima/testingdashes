@@ -11,7 +11,7 @@ import Pagination from "react-js-pagination";
 
 
 const api = axios.create({
-  baseURL:`http://helloworld.com.ng/medflit-api/api/patients/find`
+  baseURL:`https://helloworld.com.ng/medflit-api/api/patients/find`
 });
 
 const session ={
@@ -38,7 +38,7 @@ export default class Patientlog extends Component {
 
 componentDidMount()
 {
-  axios.get('http://helloworld.com.ng/medflit-api/api/patients/find',{
+  axios.get('https://helloworld.com.ng/medflit-api/api/patients/find',{
         headers: {
          'Authorization': "Bearer "+ localStorage.getItem('token'),      
          'Accept': 'application/json',
@@ -63,7 +63,7 @@ componentDidMount()
 
 handlePageChange(pageNumber) {
   console.log(`active page is ${pageNumber}`);
-  axios.get('http://helloworld.com.ng/medflit-api/api/patients/find?page='+pageNumber,{
+  axios.get('https://helloworld.com.ng/medflit-api/api/patients/find?page='+pageNumber,{
     headers: {
       'Authorization': "Bearer "+ localStorage.getItem('token'),      
       'Accept': 'application/json',

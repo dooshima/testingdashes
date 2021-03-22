@@ -38,7 +38,7 @@ export default class AllUserlog extends React.Component {
 
 componentDidMount()
 {
-  axios.get("http://helloworld.com.ng/medflit-api/api/admin/users",{
+  axios.get("https://helloworld.com.ng/medflit-api/api/admin/users",{
         headers: {
          'Authorization': "Bearer "+ localStorage.getItem('token'),      
          'Accept': 'application/json',
